@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/05/2016 04:34:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Juegos" table="juegos" schema="public" optimistic-lock="version">
+        <id name="idJuego" type="int">
+            <column name="id_juego" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="Modelo.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="videojuego" class="Modelo.Videojuego" fetch="select">
+            <column name="id_videojuego" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/05/2016 04:34:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Videojuego" table="videojuego" schema="public" optimistic-lock="version">
+        <id name="idVideojuego" type="int">
+            <column name="id_videojuego" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="administrador" class="Modelo.Administrador" fetch="select">
+            <column name="id_admin" not-null="true" />
+        </many-to-one>
+        <many-to-one name="asignatura" class="Modelo.Asignatura" fetch="select">
+            <column name="id_asignatura" not-null="true" />
+        </many-to-one>
+        <property name="nombreJuego" type="string">
+            <column name="nombre_juego" length="50" not-null="true" />
+        </property>
+        <property name="tamanioJuego" type="serializable">
+            <column name="tamanio_juego" not-null="true" />
+        </property>
+        <property name="nombreAutor" type="string">
+            <column name="nombre_autor" length="30" />
+        </property>
+        <property name="versionJuego" type="string">
+            <column name="version_juego" length="10" not-null="true" />
+        </property>
+        <property name="boolPublicar" type="boolean">
+            <column name="bool_publicar" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="200" />
+        </property>
+        <set name="juegoses" table="juegos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_videojuego" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Juegos" />
+        </set>
+    </class>
+</hibernate-mapping>

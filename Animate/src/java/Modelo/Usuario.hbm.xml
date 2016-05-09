@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/05/2016 04:34:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="administrador" class="Modelo.Administrador" fetch="select">
+            <column name="id_admin" not-null="true" />
+        </many-to-one>
+        <property name="usernameUsuario" type="string">
+            <column name="username_usuario" length="20" not-null="true" />
+        </property>
+        <property name="passwordUsuario" type="string">
+            <column name="password_usuario" length="50" not-null="true" />
+        </property>
+        <property name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="30" not-null="true" />
+        </property>
+        <property name="tipoUsuario" type="int">
+            <column name="tipo_usuario" not-null="true" />
+        </property>
+        <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Estudiante" />
+        </set>
+        <set name="juegoses" table="juegos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Juegos" />
+        </set>
+    </class>
+</hibernate-mapping>
