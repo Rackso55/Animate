@@ -35,7 +35,14 @@ public class Usuario  implements java.io.Serializable {
     public Usuario() {
     }
 
-	
+    public Usuario(int idUsuario, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario) {
+        this.idUsuario = idUsuario;
+        this.usernameUsuario = usernameUsuario;
+        this.passwordUsuario = passwordUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.tipoUsuario = tipoUsuario;
+    }
+    
     public Usuario(int idUsuario, Administrador administrador, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario) {
         this.idUsuario = idUsuario;
         this.administrador = administrador;
@@ -44,6 +51,7 @@ public class Usuario  implements java.io.Serializable {
         this.nombreUsuario = nombreUsuario;
         this.tipoUsuario = tipoUsuario;
     }
+    
     public Usuario(int idUsuario, Administrador administrador, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario, Set estudiantes, Set juegoses) {
        this.idUsuario = idUsuario;
        this.administrador = administrador;

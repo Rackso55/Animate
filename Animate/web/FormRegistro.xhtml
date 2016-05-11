@@ -15,23 +15,23 @@
             <h:panelGrid columns = "2">
                 
                 <h:outputLabel value="Usuario" />
-                <p:inputText value="#{UsuarioC.usuario.usernameUsuario}" />
+                <p:inputText value="#{usuarioC.usuario.usernameUsuario}" />
 
                 
                 <h:outputLabel value="Contraseña" />
-                <p:inputText value="#{UsuarioC.usuario.passwordUsuario}" />
+                <p:inputText value="#{usuarioC.usuario.passwordUsuario}" />
 
                 
                 <h:outputLabel value="Contraseña" />
-                <p:inputText value="#{UsuarioC.confirmacion}" />
+                <p:inputText value="#{usuarioC.confirmacion}" />
 
                 
                 <p:outputLabel value="Nombre" />
-                <p:inputText value="#{UsuarioC.usuario.nombreUsuario}" />               
-                                
-                <h:commandButton value="Registrarse" action="#{EstudianteC.registro()}" > 
-                    <f:actionListener binding="#{EstudianteC.estudiante.setChofer(UsuarioC.getUsuario)}" />
-                    <f:actionListener binding="#{UsuarioC.usuario.setTipoUsuario(1)}"/>
+                <p:inputText value="#{usuarioC.usuario.nombreUsuario}" />               
+                                #{estudianteC.estudiante.setUsuario(usuarioC.usuario)}
+                <h:commandButton value="Registrarse" action="#{estudianteC.registro()}" > 
+                    <!--f:actionListener binding="#{estudianteC.estudiante.setUsuario(usuarioC.usuario)}" /-->
+                    <f:actionListener binding="#{usuarioC.usuario.setTipoUsuario(1)}"/>
                 </h:commandButton>
                 
             </h:panelGrid>

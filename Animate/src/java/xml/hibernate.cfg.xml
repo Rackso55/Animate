@@ -7,11 +7,11 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/animaes_bd</property>
     <property name="hibernate.connection.username">animaes</property>
     <property name="hibernate.connection.password">animaes</property>
-    <mapping resource="/Juegos.hbm.xml"/>
-    <mapping resource="/Administrador.hbm.xml"/>
-    <mapping resource="/Asignatura.hbm.xml"/>
-    <mapping resource="/Usuario.hbm.xml"/>
-    <mapping resource="/Estudiante.hbm.xml"/>
-    <mapping resource="/Videojuego.hbm.xml"/>
+    <mapping resource="xml/Juegos.hbm.xml"/>
+    <mapping resource="xml/Administrador.hbm.xml"/>
+    <mapping resource="xml/Asignatura.hbm.xml"/>
+    <mapping resource="xml/Usuario.hbm.xml"/>
+    <mapping resource="xml/Estudiante.hbm.xml"/>
+    <mapping resource="xml/Videojuego.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
