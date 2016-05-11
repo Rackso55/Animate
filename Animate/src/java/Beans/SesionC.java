@@ -69,7 +69,7 @@ public class SesionC implements Serializable {
             if (adm != null) {
                 FacesContext.getCurrentInstance().getExternalContext()
                         .getSessionMap().put("usuario", adm);
-                resultado = "inicioChofer";
+                resultado = "inicioAdmin";
                 a = adm;
             } else {
                 mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
@@ -101,7 +101,7 @@ public class SesionC implements Serializable {
         /* is all of this necessary?*/
         es = null;
         a = null;
-        return "PaginaPrincipalIH";
+        return "PaginaPrincipal";
     }    
     
     public boolean verificarTipo() {
