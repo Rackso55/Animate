@@ -6,8 +6,8 @@ import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 
-import Modelo.Usuario;
-import Logica.UsuarioL;
+import Modelo.Estudiante;
+import Logica.EstudianteL;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.servlet.http.HttpServletRequest;
@@ -15,38 +15,37 @@ import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @ViewScoped
-public class UsuarioC implements Serializable {
+public class EstudianteC implements Serializable {
 
-    private Usuario usuario = new Usuario();
+    private Estudiante est = new Estudiante();
     private String confirmacion;
-    private UsuarioL ayudante = new UsuarioL();
+    private EstudianteL ayudante = new EstudianteL();
     private FacesMessage mensaje;
     private boolean exito;
     
     
-    public UsuarioC() {
+    public EstudianteC() {
     }
 
     public boolean isExito() {
         return exito;
     }
     
-    public Usuario getUsuario() {
-        return usuario;
+    public Estudiante getEstudiante() {
+        return est;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setEstudiante(Estudiante est) {
+        this.est = est;
     }
     
     public String registro() {
-        mensaje = ayudante.registrar(usuario,confirmacion);
-        ayudante = new UsuarioL();
+        mensaje = ayudante.registrar(est,confirmacion);
+        ayudante = new EstudianteL();
         if(mensaje != null) {
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
             return "";
         }
-        mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Tu registro fue exitoso... Ya puedes iniciar sesión", null);
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
         exito = true;
         System.out.println("Este es el valor de registro: "+exito);
@@ -61,3 +60,4 @@ public class UsuarioC implements Serializable {
         return confirmacion;
     }
 }
+
