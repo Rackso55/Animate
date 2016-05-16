@@ -15,12 +15,12 @@
             <h:panelGrid columns = "2">
                 
                 <h:outputLabel value ="Usuario" />
-                <h:inputText value="#{UsuarioC.usuario.usernameUsuario}" />
+                <h:inputText value="#{sesionC.usuario.usernameUsuario}" />
                 
                 <h:outputLabel value="Contraseña" />
-                <h:inputSecret value="#{UsuarioC.usuario.passwordUsuario}" />
+                <h:inputSecret value="#{sesionC.usuario.passwordUsuario}" />
                 
-                <h:commandButton value="Iniciar Sesion" action="#{SesionC.verificarDatos()}" />      
+                <h:commandButton value="Iniciar Sesion" action="#{sesionC.verificarDatos()}" />      
                 
             </h:panelGrid>
         

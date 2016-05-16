@@ -18,7 +18,7 @@ import Modelo.Administrador;
 @ManagedBean
 public class SesionC implements Serializable {
 
-   private Estudiante es = new Estudiante();
+   private Usuario es = new Usuario();
    private boolean tipo;
    private FacesMessage mensaje;
    private Administrador a = new Administrador();
@@ -33,11 +33,11 @@ public class SesionC implements Serializable {
         this.tipo = tipo;
     }
    
-    public Estudiante getEstudiante() {
+    public Usuario getEstudiante() {
         return es;
     }
 
-    public void setEstudiante(Estudiante es) {
+    public void setEstudiante(Usuario es) {
         this.es = es;
     }
 
@@ -45,7 +45,7 @@ public class SesionC implements Serializable {
         SesionL sl = new SesionL();
         String resultado;
         if(tipo == false) {
-            Estudiante est;
+            Usuario est;
             try {
             est = sl.verificarDatos(this.es);
             if (est != null) {

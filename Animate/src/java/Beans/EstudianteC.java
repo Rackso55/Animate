@@ -46,6 +46,7 @@ public class EstudianteC implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
             return "";
         }
+        mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Tu registro fue exitoso... Ya puedes iniciar sesión", null);
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
         exito = true;
         System.out.println("Este es el valor de registro: "+exito);

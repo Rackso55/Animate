@@ -4,7 +4,7 @@ import Modelo.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import Modelo.Estudiante;
+import Modelo.Usuario;
 import Utiles.Encriptacion;
 import Utiles.HibernateUtil;
 import Modelo.Administrador;
@@ -14,17 +14,16 @@ public class SesionL {
     private Encriptacion encripta;
     private Session sesion;
 
-	public Estudiante verificarDatos(Estudiante p) throws Exception {
+	public Usuario verificarDatos(Usuario p) throws Exception {
                 encripta = new Encriptacion();
-		Estudiante pa = null;
-		Usuario us = p.getUsuario();
+		Usuario pa = null;
                 try {
 			sesion = HibernateUtil.getSessionFactory().openSession();
-			String hql = "FROM Pasajero WHERE Pcorreo = '" + us.getUsernameUsuario()
-					+ "' and Pcontrasenia = '" + encripta.encripta(us.getPasswordUsuario()) + "'";
+			String hql = "FROM Pasajero WHERE usernameUsuario = '" + p.getUsernameUsuario()
+					+ "' and passwordUsuario = '" + encripta.encripta(p.getPasswordUsuario()) + "'";
 			Query query = sesion.createQuery(hql);
 			if (!query.list().isEmpty())
-				pa = (Estudiante) query.list().get(0);			
+				pa = (Usuario) query.list().get(0);			
 
 		} catch (Exception e) {
 			throw e;
@@ -38,8 +37,8 @@ public class SesionL {
 		Administrador adm = null;
                 try {
 			sesion = HibernateUtil.getSessionFactory().openSession();
-			String hql = "FROM Pasajero WHERE Pcorreo = '" + a.getUsernameAdmin()
-					+ "' and Pcontrasenia = '" + encripta.encripta(a.getPasswordAdmin()) + "'";
+			String hql = "FROM Pasajero WHERE usernameAdmin = '" + a.getUsernameAdmin()
+					+ "' and passwordAdmin = '" + encripta.encripta(a.getPasswordAdmin()) + "'";
 			Query query = sesion.createQuery(hql);
 			if (!query.list().isEmpty())
 				adm = (Administrador) query.list().get(0);			

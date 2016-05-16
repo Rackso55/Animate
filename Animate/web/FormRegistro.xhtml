@@ -28,11 +28,17 @@
                 
                 <p:outputLabel value="Nombre" />
                 <p:inputText value="#{usuarioC.usuario.nombreUsuario}" />               
-                                #{estudianteC.estudiante.setUsuario(usuarioC.usuario)}
+                
+                <h:outputLabel value="Edad" />
+                <p:inputText value="#{estudianteC.estudiante.edad}" />
+                
                 <h:commandButton value="Registrarse" action="#{estudianteC.registro()}" > 
-                    <!--f:actionListener binding="#{estudianteC.estudiante.setUsuario(usuarioC.usuario)}" /-->
+                    <f:actionListener binding="#{usuarioC.registro()}"/>
+                    <f:actionListener binding="#{estudianteC.estudiante.setUsuario(usuarioC.usuario)}" />
                     <f:actionListener binding="#{usuarioC.usuario.setTipoUsuario(1)}"/>
                 </h:commandButton>
+                
+                
                 
             </h:panelGrid>
         
