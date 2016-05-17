@@ -1,5 +1,5 @@
 package Modelo;
-// Generated 9/05/2016 04:34:32 PM by Hibernate Tools 4.3.1
+// Generated 17/05/2016 01:23:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -35,6 +35,7 @@ public class Usuario  implements java.io.Serializable {
     public Usuario() {
     }
 
+	
     public Usuario(int idUsuario, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario) {
         this.idUsuario = idUsuario;
         this.usernameUsuario = usernameUsuario;
@@ -42,16 +43,6 @@ public class Usuario  implements java.io.Serializable {
         this.nombreUsuario = nombreUsuario;
         this.tipoUsuario = tipoUsuario;
     }
-    
-    public Usuario(int idUsuario, Administrador administrador, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario) {
-        this.idUsuario = idUsuario;
-        this.administrador = administrador;
-        this.usernameUsuario = usernameUsuario;
-        this.passwordUsuario = passwordUsuario;
-        this.nombreUsuario = nombreUsuario;
-        this.tipoUsuario = tipoUsuario;
-    }
-    
     public Usuario(int idUsuario, Administrador administrador, String usernameUsuario, String passwordUsuario, String nombreUsuario, int tipoUsuario, Set estudiantes, Set juegoses) {
        this.idUsuario = idUsuario;
        this.administrador = administrador;
@@ -76,7 +67,7 @@ public class Usuario  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id_admin", nullable=false)
+    @JoinColumn(name="id_admin")
     public Administrador getAdministrador() {
         return this.administrador;
     }
@@ -96,7 +87,7 @@ public class Usuario  implements java.io.Serializable {
     }
 
     
-    @Column(name="password_usuario", nullable=false, length=50)
+    @Column(name="password_usuario", nullable=false, length=128)
     public String getPasswordUsuario() {
         return this.passwordUsuario;
     }

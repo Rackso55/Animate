@@ -1,5 +1,5 @@
 package Modelo;
-// Generated 9/05/2016 04:34:32 PM by Hibernate Tools 4.3.1
+// Generated 17/05/2016 01:23:43 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;

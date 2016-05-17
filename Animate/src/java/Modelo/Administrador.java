@@ -1,4 +1,5 @@
 package Modelo;
+// Generated 17/05/2016 01:23:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -69,7 +70,7 @@ public class Administrador  implements java.io.Serializable {
     }
 
     
-    @Column(name="password_admin", nullable=false, length=50)
+    @Column(name="password_admin", nullable=false, length=128)
     public String getPasswordAdmin() {
         return this.passwordAdmin;
     }
