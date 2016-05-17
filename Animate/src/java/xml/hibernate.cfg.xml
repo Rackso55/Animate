@@ -13,5 +13,11 @@
     <mapping resource="xml/Usuario.hbm.xml"/>
     <mapping resource="xml/Estudiante.hbm.xml"/>
     <mapping resource="xml/Videojuego.hbm.xml"/>
+    <mapping resource="xml/Juegos.hbm.xml"/>
+    <mapping resource="xml/Usuario.hbm.xml"/>
+    <mapping resource="xml/Administrador.hbm.xml"/>
+    <mapping resource="xml/Estudiante.hbm.xml"/>
+    <mapping resource="xml/Videojuego.hbm.xml"/>
+    <mapping resource="xml/Asignatura.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
