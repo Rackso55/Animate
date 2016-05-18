@@ -7,6 +7,7 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 
 import Modelo.Estudiante;
+import Modelo.Usuario;
 import Logica.EstudianteL;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ViewScoped;
@@ -19,6 +20,7 @@ public class EstudianteC implements Serializable {
 
     private Estudiante est = new Estudiante();
     private String confirmacion;
+    private Usuario usuario = new Usuario();
     private EstudianteL ayudante = new EstudianteL();
     private FacesMessage mensaje;
     private boolean exito;
@@ -35,12 +37,20 @@ public class EstudianteC implements Serializable {
         return est;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public void setEstudiante(Estudiante est) {
         this.est = est;
     }
     
     public String registro() {
-        mensaje = ayudante.registrar(est,confirmacion);
+        mensaje = ayudante.registrar(est, usuario, confirmacion);
         ayudante = new EstudianteL();
         if(mensaje != null) {
             FacesContext.getCurrentInstance().addMessage(null, mensaje);

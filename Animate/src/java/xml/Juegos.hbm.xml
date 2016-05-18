@@ -4,11 +4,11 @@
 <hibernate-mapping>
   <class name="Modelo.Juegos" optimistic-lock="version" schema="public" table="juegos">
     <id name="idJuego" type="int">
-      <column name="id_juego"/>
+            <column name="id_juego"/>
             <generator class="sequence">
                 <param name="sequence">juegos_id_juego_seq</param>
             </generator>
-        </id>
+    </id>
     <many-to-one class="Modelo.Usuario" fetch="select" name="usuario">
       <column name="id_usuario" not-null="true"/>
     </many-to-one>

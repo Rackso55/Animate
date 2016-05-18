@@ -24,6 +24,7 @@ public class UsuarioL implements Serializable{
         System.out.println("\n\n\n\n\nComienza registro de usuario");
         try{
             cripta = new Encriptacion();
+            System.out.println("ABRIENDO CONEXION");
             con = ConexionBD.getSessionFactory().openSession();
             System.out.println("Conexion realizada");
             trans = con.beginTransaction();
@@ -33,9 +34,10 @@ public class UsuarioL implements Serializable{
         }catch(Exception e){
             trans.rollback();
             mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error con el registro del usuario", null);
-            System.out.println("Esta es la excepcion "+e.getClass().getName());
+            System.out.println("ESTA ES LA EXCEPCION================= "+e.getClass().getName());
             e.printStackTrace();
         }finally{
+            System.out.println("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL");
             con.close();
             return mensaje;
         }

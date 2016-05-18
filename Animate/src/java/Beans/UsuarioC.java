@@ -60,4 +60,8 @@ public class UsuarioC implements Serializable {
     public String getConfirmacion() {
         return confirmacion;
     }
+    
+    public void imprime(){
+        System.out.println("ESTO SE VA A DESCONTROLAAAAARR...........");
+    }
 }

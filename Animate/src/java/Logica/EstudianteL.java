@@ -7,6 +7,7 @@ import Modelo.ConexionBD;
 import Modelo.Estudiante;
 import org.hibernate.Transaction;
 import Utiles.Encriptacion;
+import Modelo.Usuario;
 
 
 public class EstudianteL implements Serializable{
@@ -14,7 +15,7 @@ public class EstudianteL implements Serializable{
     private Transaction trans;
 
     
-    public FacesMessage registrar(Estudiante es, String confirmacion){
+    public FacesMessage registrar(Estudiante es, Usuario usuario, String confirmacion){
         FacesMessage mensaje = null;
         try{
             System.out.println("inicia registro de estudiante");
@@ -22,8 +23,9 @@ public class EstudianteL implements Serializable{
             System.out.println("Conexion realizadaaaaaaaaaaaaa, COMIENZA TRANSACCION");
             trans = con.beginTransaction();
             System.out.println("A PUNTO DE SALVAR ESTUDIANTE");
+            con.save(usuario);
+            es.setUsuario(usuario);
             con.save(es);
-            
             trans.commit();
             System.out.println("Ya lo guardo!!!!");
         }catch(Exception e){

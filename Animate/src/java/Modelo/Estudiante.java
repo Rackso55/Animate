@@ -19,7 +19,6 @@ import javax.persistence.Table;
 )
 public class Estudiante  implements java.io.Serializable {
 
-
      private int idEstudiante;
      private Usuario usuario;
      private int edad;

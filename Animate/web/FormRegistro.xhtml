@@ -11,39 +11,32 @@
     <h:body>
         <h:form>
             <h1> Registro </h1>
-            
+
             <h:panelGrid columns = "2">
-                
+
                 <h:outputLabel value="Usuario" />
-                <p:inputText value="#{usuarioC.usuario.usernameUsuario}" />
+                <p:inputText value="#{estudianteC.usuario.usernameUsuario}" />
 
-                
                 <h:outputLabel value="Contraseña" />
-                <p:inputText value="#{usuarioC.usuario.passwordUsuario}" />
+                <p:inputText value="#{estudianteC.usuario.passwordUsuario}" />
 
-                
                 <h:outputLabel value="Contraseña" />
-                <p:inputText value="#{usuarioC.confirmacion}" />
+                <p:inputText value="#{estudianteC.confirmacion}" />
 
-                
                 <p:outputLabel value="Nombre" />
-                <p:inputText value="#{usuarioC.usuario.nombreUsuario}" />               
-                
+                <p:inputText value="#{estudianteC.usuario.nombreUsuario}" />               
+
                 <h:outputLabel value="Edad" />
                 <p:inputText value="#{estudianteC.estudiante.edad}" />
-                
+
                 <h:commandButton value="Registrarse" action="#{estudianteC.registro()}" > 
-                    <f:actionListener binding="#{usuarioC.registro()}"/>
-                    <f:actionListener binding="#{estudianteC.estudiante.setUsuario(usuarioC.usuario)}" />
-                    <f:actionListener binding="#{usuarioC.usuario.setTipoUsuario(1)}"/>
+                    <f:actionListener binding="#{estudianteC.usuario.setTipoUsuario(1)}"/>
                 </h:commandButton>
-                
-                
-                
+
             </h:panelGrid>
-        
+
         </h:form>
-        
+
     </h:body>
 </html>
 
