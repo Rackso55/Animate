@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 3, 2016 5:58:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="sequence" >
+                <param name="sequence">usuario_id_usuario_seq</param>
+            </generator>
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="32" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="fechaDeRegistro" type="timestamp">
+            <column name="fecha_de_registro" length="29" not-null="true" />
+        </property>
+        <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Estudiante" />
+        </set>
+        <set name="administradors" table="administrador" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Administrador" />
+        </set>
+    </class>
+</hibernate-mapping>

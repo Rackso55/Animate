@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/animaes_bd</property>
+    <property name="hibernate.connection.username">animaes</property>
+    <property name="hibernate.connection.password">animaes</property>
+    <mapping resource="model/Imagen.hbm.xml"/>
+    <mapping resource="model/Grado.hbm.xml"/>
+    <mapping resource="model/Administrador.hbm.xml"/>
+    <mapping resource="model/Favorito.hbm.xml"/>
+    <mapping resource="xml/Usuario.hbm.xml"/>
+    <mapping resource="model/Asignatura.hbm.xml"/>
+    <mapping resource="model/Comentario.hbm.xml"/>
+    <mapping resource="model/Juego.hbm.xml"/>
+    <mapping resource="model/JuegoEstudiante.hbm.xml"/>
+    <mapping resource="model/Estudiante.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

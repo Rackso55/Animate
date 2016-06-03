@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 3, 2016 5:58:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Estudiante" table="estudiante" schema="public" optimistic-lock="version">
+        <id name="idEstudiante" type="int">
+            <column name="id_estudiante" />
+            <generator class="sequence" >
+                <param name="sequence">estudiante_id_estudiante_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="grado" class="model.Grado" fetch="select">
+            <column name="grado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+        <property name="apellidoPat" type="string">
+            <column name="apellido_pat" length="20" not-null="true" />
+        </property>
+        <property name="apellidoMat" type="string">
+            <column name="apellido_mat" length="20" not-null="true" />
+        </property>
+        <property name="edad" type="int">
+            <column name="edad" not-null="true" />
+        </property>
+        <set name="favoritos" table="favorito" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" />
+            </key>
+            <one-to-many class="model.Favorito" />
+        </set>
+        <set name="imagens" table="imagen" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Imagen" />
+        </set>
+        <set name="comentarios" table="comentario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" />
+            </key>
+            <one-to-many class="model.Comentario" />
+        </set>
+        <set name="juegoEstudiantes" table="juego_estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" />
+            </key>
+            <one-to-many class="model.JuegoEstudiante" />
+        </set>
+    </class>
+</hibernate-mapping>

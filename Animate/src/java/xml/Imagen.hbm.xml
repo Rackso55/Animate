@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 3, 2016 5:58:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Imagen" table="imagen" schema="public" optimistic-lock="version">
+        <id name="idImagen" type="int">
+            <column name="id_imagen" />
+           <generator class="sequence" >
+                <param name="sequence">imagen_id_imagen_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="estudiante" class="model.Estudiante" fetch="select">
+            <column name="id_estudiante" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="imagen" type="binary">
+            <column name="imagen" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

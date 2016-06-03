@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="animaes_bd" match-schema="public"/>
+  <table-filter match-name="imagen"/>
+  <table-filter match-name="juego"/>
+  <table-filter match-name="grado"/>
+  <table-filter match-name="juego_estudiante"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="comentario"/>
+  <table-filter match-name="administrador"/>
+  <table-filter match-name="estudiante"/>
+  <table-filter match-name="asignatura"/>
+  <table-filter match-name="favorito"/>
+</hibernate-reverse-engineering>
