@@ -3,26 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
 
 
     <f:view locale="es_MX">
         <h:head>
-            <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
-<!--            <script type="text/javascript">
-                if (typeof Muse == "undefined")
-                    window.Muse = {};
-                window.Muse.assets = {"required": ["resources/js/jquery-1.8.3.min.js", "resources/js/museutils.js", "resources/js/jquery.watch.js", "resources/css/index.css"], "outOfDate": []};
-            </script>-->
-            <!--<meta name="generator" content="2015.0.0.309"/>-->
-            <title>inicio</title>
-            <!-- CSS -->
-            <link href="resources/css/site_global.css" rel="stylesheet"/>
-            <link href="resources/css/master_a-master.css" rel="stylesheet"/>
-            <link href="resources/css/index.css" rel="stylesheet"/>
-<!--            <script type="text/javascript" >
-                document.documentElement.className += ' js';
-            </script>-->
+            <h:outputStylesheet name="css/site_global.css" />
+            <h:outputStylesheet name="css/master_a-master.css" />
+            <h:outputStylesheet name="css/index.css" />
+            <h:outputStylesheet name="css/vistas.css" />
+            <h:outputStylesheet name="css/pf-override.css" />
+            <h:outputStylesheet name="css/registrarse.css" />
+            
         </h:head>
 
         <h:body >
@@ -30,24 +24,23 @@
                 <div class="clearfix" id="page"><!-- column -->
                     <div class="position_content" id="page_position_content">
                         <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
-                            <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u146" href="index.xhtml"><!-- image --><img class="block" id="u146_img" src="resources/images/banner.png" alt="" width="339" height="142"/></a>
+                            <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u146" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- image --><img class="block" id="u146_img" src="resources/images/banner.png" alt="" width="339" height="142"/></a>
                         </div>
                         <div class="clearfix colelem" id="pu114"><!-- group -->
                             <div class="clip_frame grpelem" id="u114"><!-- bajobanner --><img class="block" id="u114" src="" alt="" width="960" height="50"/>
                             </div>
                             <div class="clip_frame grpelem" id="u115"><!-- sombrabajobanner --><img class="block" id="u115" src="" alt="" width="960" height="30"/>
                             </div>
-                            <a class="nonblock nontext MuseLinkActive grpelem" id="u120" href="index.xhtml"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
+                            <a class="nonblock nontext grpelem" id="u120" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
                             <a class="nonblock nontext grpelem" id="u122" href="juegos.html"><!-- state-based BG images --><img id="u122_states" alt="JUEGOS" src="resources/images/blank.gif"/></a>
-                            <a class="nonblock nontext grpelem" id="u123" href="iniciarsesion.html"><!-- state-based BG images --><img id="u123_states" alt="INICIAR SESIÓN" src="resources/images/blank.gif"/></a>
-                            <a class="nonblock nontext grpelem" id="u124" href="RegistroEstudianteIH.xhtml"><!-- state-based BG images --><img id="u124_states" alt="REGISTRARSE" src="resources/images/blank.gif"/></a>
+                            <a class="nonblock nontext grpelem" id="u123" onclick="window.open('/Animate/faces/FormInicioSesionIH.xhtml', '_self')"><!-- state-based BG images --><img id="u123_states" alt="INICIAR SESIÓN" src="resources/images/blank.gif"/></a>
+                            <a class="nonblock nontext grpelem" id="u124" onclick="window.open('/Animate/faces/RegistroEstudianteIH.xhtml', '_self')"><!-- state-based BG images --><img id="u124_states" alt="REGISTRARSE" src="resources/images/blank.gif"/></a>
                         </div>
+                        <ui:insert name="content">
+
+                        </ui:insert> 
 
 
-                        <div class="colelem" id="u101"><!-- simple frame --></div>
-                        <img class="colelem" id="u153-6" alt="Estudiar es importante, ¡divertirse también!" width="816" height="62" src="resources/images/u153-6.png"/><!-- rasterized frame -->
-                        <a class="nonblock nontext clip_frame colelem" id="u154" href="juegos.html"><!-- image --><img class="block" id="u154_img" src="resources/images/botonentrar.png" alt="" width="156" height="60"/></a>
-                        <div class="verticalspacer"></div>
                     </div>
                 </div>
                 <div class="preload_images">
@@ -60,18 +53,8 @@
                     <img class="preload" src="resources/images/u124_states-r.png" alt=""/>
                     <img class="preload" src="resources/images/u124_states-a.png" alt=""/>
                 </div>
-                <!-- JS includes -->
-<!--                <script type="text/javascript">
-                    if (document.location.protocol != 'https:')
-                        document.write('\x3Cscript src="http://musecdn.businesscatalyst.com/scripts/4.0/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
-                </script>
-                <h:outputScript library="js" name="jquery-1.8.3.min.js" />
-                <script src="resources/js/museutils.js"/>
-                <script src="resources/js/jquery.watch.js"/>-->
             </ui:insert>
-            <ui:insert name="content">
 
-            </ui:insert> 
         </h:body>
     </f:view>
 </html>

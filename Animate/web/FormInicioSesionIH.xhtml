@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1> Iniciar Sesion </h1>
+            
+            <h:panelGrid columns = "2">
+                
+                <h:outputLabel value ="Usuario" />
+                <h:inputText value="#{sesionC.usuario.username}" />
+                
+                <h:outputLabel value="Contraseña" />
+                <h:inputSecret value="#{sesionC.usuario.password}" />
+                
+                <h:commandButton value="Iniciar Sesion" action="#{sesionC.verificarDatos()}" />      
+                
+            </h:panelGrid>
+        
+        </h:form>
+    </h:body>
+</html>

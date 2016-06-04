@@ -1,6 +1,7 @@
 /* Controlador para modificar el perfil del Estudiante */
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ import model.Grado;
 @Named(value = "modificarPerfilC")
 @ManagedBean
 @RequestScoped
-public class ModificarPerfilC {
+public class ModificarPerfilC implements Serializable {
 
     /* El estudiante a modificar */
     private Estudiante estudiante;

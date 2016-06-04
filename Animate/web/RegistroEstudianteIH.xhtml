@@ -5,85 +5,90 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions">
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:o="http://omnifaces.org/ui">
 
+    <h:head>
+
+    </h:head>
 
     <h:body>
         <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
-                <h:form>
+                <center>   
+                    <div class="two colelem clearfix">
+                        <div class="register">
 
-                    <h2>Registro de Estudiante</h2>
-                    <h3>Ingresa tus datos</h3>
-                    <p:messages autoUpdate="true" showDetail="true" closable="true"/>
-                    <h:panelGrid id="grid" columns="3">
-                        <p:outputLabel for="nombre" value="Nombre" />
-                        <p:inputText id="nombre" required="true" value="#{registroEstudianteC.estudiante.nombre}" label="Nombre">
-                            <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                        </p:inputText>
-                        <p:message for="nombre" display="text"/>
 
-                        <p:outputLabel for="app" value="Apellido Paterno" />
-                        <p:inputText id="app" required="true" value="#{registroEstudianteC.estudiante.apellidoPat}" label="Apellido Paterno">
-                            <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                        </p:inputText>
-                        <p:message for="app" display="text"/>
+                            <h:form>
 
-                        <p:outputLabel for="apm" value="Apellido Materno" />
-                        <p:inputText id="apm" required="true" value="#{registroEstudianteC.estudiante.apellidoMat}" label="Apellido Materno">
-                            <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                        </p:inputText>
-                        <p:message for="apm" display="text"/>
+                                <p:messages autoUpdate="true" showDetail="true" closable="true"/>
+                                <h:panelGrid id="grid" columns="3" styleClass="mi-panel-grid">
+                                    <p:outputLabel value=""/>
+                                    <p:outputLabel value="Regístrate" styleClass="titulo"/>
+                                    <p:outputLabel value=""/>
 
-                        <p:outputLabel for="usrnombre" value="Nombre de usuario" />
-                        <p:inputText id="usrnombre" required="true" value="#{registroEstudianteC.usuario.username}" label="Nombre">
-                            <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                        </p:inputText>
-                        <p:message for="usrnombre" display="text"/>
+                                    <p:outputLabel for="nombre" value="Nombre" />
+                                    <p:inputText id="nombre" required="true" value="#{registroEstudianteC.estudiante.nombre}" label="Nombre">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="nombre" display="text"/>
 
-                        <p:outputLabel for="correo" value="Correo" />
-                        <p:inputText id="correo" required="true" value="#{registroEstudianteC.usuario.correo}" label="Correo">
-                            <pe:keyFilter regEx="/[a-z0-9_\-\.@]/i" />
-                        </p:inputText>
-                        <p:message for="correo" display="text"/>
+                                    <p:outputLabel for="app" value="Apellido Paterno" />
+                                    <p:inputText id="app" required="true" value="#{registroEstudianteC.estudiante.apellidoPat}" label="Apellido Paterno">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="app" display="text"/>
 
-                        <p:outputLabel for="contrasenia" value="Contraseña" />
-                        <p:password id="contrasenia" required="true" value="#{registroEstudianteC.usuario.password}" 
-                                    feedback="true" inline="true" promptLabel="Ingresa una contraseña" 
-                                    weakLabel="Débil" goodLabel="Medio" strongLabel="Fuerte" label="Contraseña"/>
-                        <p:message for="contrasenia" display="text"/>
+                                    <p:outputLabel for="apm" value="Apellido Materno" />
+                                    <p:inputText id="apm" required="true" value="#{registroEstudianteC.estudiante.apellidoMat}" label="Apellido Materno">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="apm" display="text"/>
 
-                        <p:outputLabel for="contraseniac" value="Confirmación de Contraseña" />
-                        <p:password id="contraseniac" required="true" value="#{registroEstudianteC.confirmacion}" label="Confirmación"/>
-                        <p:message for="contraseniac" display="text" />
+                                    <p:outputLabel for="usrnombre" value="Nombre de usuario" />
+                                    <p:inputText id="usrnombre" required="true" value="#{registroEstudianteC.usuario.username}" label="Nombre">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="usrnombre" display="text"/>
 
-                        <p:outputLabel for="edad" value="Edad" />
-                        <p:inputText id="edad" required="true" value="#{registroEstudianteC.estudiante.edad}" label="Edad"/>
-                        <p:message for="edad" display="text" />
+                                    <p:outputLabel for="correo" value="Correo" />
+                                    <p:inputText id="correo" required="true" value="#{registroEstudianteC.usuario.correo}" label="Correo">
+                                        <pe:keyFilter regEx="/[a-z0-9_\-\.@]/i" />
+                                    </p:inputText>
+                                    <p:message for="correo" display="text"/>
 
-                        <p:outputLabel for="grado" value="Grado:" />
-                        <!--                <p:selectOneListbox id="grado" value="" converter="gradoConverter" var="g" required="true">
-                                            <f:selectItems value="" var="grado" itemLabel="" itemValue="" />
-                                            <p:column>
-                                                <h:outputText value="" />
-                                            </p:column>
-                                        </p:selectOneListbox>-->
-                        <p:selectOneListbox id="grado" value="#{registroEstudianteC.grado}">
-                            <f:selectItem itemLabel="1er grado" itemValue="1" />
-                            <f:selectItem itemLabel="2do grado" itemValue="2" />
-                            <f:selectItem itemLabel="3er grado" itemValue="3" />
-                            <f:selectItem itemLabel="4to grado" itemValue="4" />
-                            <f:selectItem itemLabel="5to grado" itemValue="5" />
-                            <f:selectItem itemLabel="6to grado" itemValue="6" />
-                        </p:selectOneListbox>
-                        <p:message for="grado" display="text" />
+                                    <p:outputLabel for="contrasenia" value="Contraseña" />
+                                    <p:password id="contrasenia" required="true" value="#{registroEstudianteC.usuario.password}" 
+                                                feedback="true" inline="true" promptLabel="Ingresa una contraseña" 
+                                                weakLabel="Débil" goodLabel="Medio" strongLabel="Fuerte" label="Contraseña"/>
+                                    <p:message for="contrasenia" display="text"/>
 
-                        <p:commandButton value="Registrar" action="#{registroEstudianteC.registrar()}"/>
-                    </h:panelGrid>
-                </h:form>
+                                    <p:outputLabel for="contraseniac" value="Confirmación de Contraseña" />
+                                    <p:password id="contraseniac" required="true" value="#{registroEstudianteC.confirmacion}" label="Confirmación"/>
+                                    <p:message for="contraseniac" display="text" />
+
+                                    <p:outputLabel for="edad" value="Edad" />
+                                    <p:inputText id="edad" required="true" value="#{registroEstudianteC.estudiante.edad}" label="Edad"/>
+                                    <p:message for="edad" display="text" />
+
+                                    <p:outputLabel for="grado" value="Grado" />
+                                    <h:selectOneMenu id="grado" value="#{registroEstudianteC.estudiante.grado}" converter="omnifaces.SelectItemsConverter">
+                                        <f:selectItems value="#{registroEstudianteC.lstGrados}" />
+                                    </h:selectOneMenu>
+                                    <p:message for="grado" display="text" />
+
+
+                                    <p:commandButton value="Registrar" action="#{registroEstudianteC.registrar()}"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </div>
+
+                </center>
             </ui:define>
         </ui:composition>
-    </h:body>
 
+    </h:body>
 
 </html>

@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.inject.Named;
@@ -13,14 +14,13 @@ import model.Usuario;
 @Named(value = "registroEstudianteC")
 @ManagedBean
 @RequestScoped
-public class RegistroEstudianteC {
+public class RegistroEstudianteC implements Serializable {
 
     Estudiante estudiante;
     Usuario usuario;
     EstudianteL ayudante;
     String confirmacion;
     FacesMessage mensaje;
-    int grado;
     List<Grado> lstGrados;
     
     public RegistroEstudianteC() {
@@ -54,14 +54,6 @@ public class RegistroEstudianteC {
         this.confirmacion = confirmacion;
     }
 
-    public int getGrado() {
-        return grado;
-    }
-
-    public void setGrado(int grado) {
-        this.grado = grado;
-    }
-
     public List<Grado> getLstGrados() {
         return lstGrados;
     }
@@ -71,6 +63,6 @@ public class RegistroEstudianteC {
     }
     
     public void registrar() {
-        mensaje = ayudante.registrar(usuario, estudiante, confirmacion, grado);
+        mensaje = ayudante.registrar(usuario, estudiante, confirmacion);
     }
 }

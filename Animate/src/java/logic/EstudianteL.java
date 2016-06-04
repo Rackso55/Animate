@@ -20,7 +20,7 @@ public class EstudianteL {
     private Cripta cripta;
     private List<Grado> lstGrados;
 
-    public FacesMessage registrar(Usuario u, Estudiante e, String confirmacion, int grado) {
+    public FacesMessage registrar(Usuario u, Estudiante e, String confirmacion) {
         FacesMessage mensaje = null;
         if (!confirmacion.equals(u.getPassword())) {
             return new FacesMessage(FacesMessage.SEVERITY_INFO, "Las contraseñas no coinciden", null);
@@ -47,8 +47,6 @@ public class EstudianteL {
                     Date fecha = new Date();
                     u.setFechaDeRegistro(fecha);
                     con.save(u);
-                    Grado g = (Grado) con.get(Grado.class, grado);
-                    e.setGrado(g);
                     e.setUsuario(u);
                     con.save(e);
                     trans.commit();
