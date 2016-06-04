@@ -47,7 +47,7 @@ public class EstudianteL {
                     Date fecha = new Date();
                     u.setFechaDeRegistro(fecha);
                     con.save(u);
-                    Grado g = (Grado)con.get(Grado.class, grado);
+                    Grado g = (Grado) con.get(Grado.class, grado);
                     e.setGrado(g);
                     e.setUsuario(u);
                     con.save(e);
@@ -63,9 +63,28 @@ public class EstudianteL {
             return mensaje;
         }
     }
-    
+
+    /* Modifica el perfil del estudiante que se pasa como parámetro */
+    public void modifica(Estudiante es) {
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().getCurrentSession();
+            }
+            /* La transacción para modificar al estudiante */
+            trans = con.beginTransaction();
+            System.out.println("HIAJSJD");
+            con.update(es);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+            e.printStackTrace();
+        } finally {
+            con.close();
+        }
+    }
+
     public List<Grado> listarGrados() {
-         try {
+        try {
             if (con == null || !con.isOpen()) {
                 con = Util.getSessionFactory().openSession();
             }

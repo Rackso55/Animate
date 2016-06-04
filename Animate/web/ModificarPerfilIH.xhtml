@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body style="background-color:white">
+        <title>Modificar perfil</title>
+        <h:form>
+            <div>
+                <label style="color: black;font-size: 150%" 
+                       for="Nombre">Nombre</label>
+                <h:inputText id="nombre" p:placeholder="#{modificarPerfilC.estudiante.nombre}" value="#{modificarPerfilC.estudiante.nombre}"/>
+            </div> 	
+            <div>
+                <label style="color: black;font-size: 150%" 
+                       for="ApellidoPaterno">Apellido Paterno</label>
+                <h:inputText id="apellidoPaterno" p:placeholder="#{modificarPerfilC.estudiante.apellidoPat}" value="#{modificarPerfilC.estudiante.apellidoPat}"/>
+            </div>   	
+            <div>
+                <label style="color: black;font-size: 150%" 
+                       for="ApellidoMaterno">Apellido Materno</label>
+                <h:inputText id="apellidoMaterno" p:placeholder="#{modificarPerfilC.estudiante.apellidoMat}" value="#{modificarPerfilC.estudiante.apellidoMat}"/>
+            </div> 
+            <div>
+                <label style="color: black;font-size: 150%" 
+                       for="Edad">Edad</label>
+                <h:inputText class="form-control" id="edad" p:placeholder="#{modificarPerfilC.estudiante.edad}" value="#{modificarPerfilC.estudiante.edad}"/>
+            </div> 
+            <h:selectOneMenu value="#{modificarPerfilC.estudiante.grado}">
+                <f:selectItems value="#{modificarPerfilC.grados}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Guardar" action="#{modificarPerfilC.modifica()}"/>
+            <a href="index.xhtml">Cancelar</a>
+        </h:form> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+        <script src="js/bootstrap.min.js"/>
+        <script src="docs/assets/js/ie10-viewport-bug-workaround.js"/>
+    </h:body>      
+</html>
