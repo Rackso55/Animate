@@ -2,12 +2,11 @@
 package beans;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import logic.EstudianteL;
 import model.Estudiante;
@@ -15,7 +14,7 @@ import model.Grado;
 
 @Named(value = "modificarPerfilC")
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class ModificarPerfilC {
 
     /* El estudiante a modificar */
@@ -29,10 +28,9 @@ public class ModificarPerfilC {
 
     /* Constructor */
     public ModificarPerfilC() {
-        estudiante = (Estudiante) FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().get("usuario");
         helper = new EstudianteL();
         grados = helper.listarGrados();
+        estudiante = helper.getEstudiante(3);
     }
 
     /* Regresa la lista de Grados */

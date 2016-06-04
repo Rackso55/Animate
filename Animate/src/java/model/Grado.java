@@ -82,4 +82,14 @@ public class Grado implements java.io.Serializable {
         return this.nombre;
     }
 
+    /* Nos dice si dos grados son iguales */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Grado) {
+            return ((Grado) obj).getNombre().equals(this.nombre);
+        } else {
+            return false;
+        }
+    }
+
 }

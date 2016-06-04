@@ -1,40 +1,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
 
-    <h:body style="background-color:white">
-        <title>Modificar perfil</title>
+    <h:body>
         <h:form>
-            <div>
-                <label style="color: black;font-size: 150%" 
-                       for="Nombre">Nombre</label>
-                <h:inputText id="nombre" p:placeholder="#{modificarPerfilC.estudiante.nombre}" value="#{modificarPerfilC.estudiante.nombre}"/>
-            </div> 	
-            <div>
-                <label style="color: black;font-size: 150%" 
-                       for="ApellidoPaterno">Apellido Paterno</label>
-                <h:inputText id="apellidoPaterno" p:placeholder="#{modificarPerfilC.estudiante.apellidoPat}" value="#{modificarPerfilC.estudiante.apellidoPat}"/>
-            </div>   	
-            <div>
-                <label style="color: black;font-size: 150%" 
-                       for="ApellidoMaterno">Apellido Materno</label>
-                <h:inputText id="apellidoMaterno" p:placeholder="#{modificarPerfilC.estudiante.apellidoMat}" value="#{modificarPerfilC.estudiante.apellidoMat}"/>
-            </div> 
-            <div>
-                <label style="color: black;font-size: 150%" 
-                       for="Edad">Edad</label>
-                <h:inputText class="form-control" id="edad" p:placeholder="#{modificarPerfilC.estudiante.edad}" value="#{modificarPerfilC.estudiante.edad}"/>
-            </div> 
-            <h:selectOneMenu value="#{modificarPerfilC.estudiante.grado}">
-                <f:selectItems value="#{modificarPerfilC.grados}" />
-            </h:selectOneMenu>
-            <h:commandButton value="Guardar" action="#{modificarPerfilC.modifica()}"/>
-            <a href="index.xhtml">Cancelar</a>
-        </h:form> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
-        <script src="js/bootstrap.min.js"/>
-        <script src="docs/assets/js/ie10-viewport-bug-workaround.js"/>
-    </h:body>      
+            <h2>Modificar perfil</h2>
+            <p:messages autoUpdate="true" showDetail="true" closable="true"/>
+            <h:panelGrid id="grid" columns="3">
+                <p:outputLabel for="nombre" value="Nombre" />
+                <p:inputText id="nombre" required="true" value="#{modificarPerfilC.estudiante.nombre}" label="Nombre">
+                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                </p:inputText>
+                <p:message for="nombre" display="text"/>
+
+                <p:outputLabel for="app" value="Apellido Paterno" />
+                <p:inputText id="app" required="true" value="#{modificarPerfilC.estudiante.apellidoPat}" label="Apellido Paterno">
+                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                </p:inputText>
+                <p:message for="app" display="text"/>
+
+                <p:outputLabel for="apm" value="Apellido Materno" />
+                <p:inputText id="apm" required="true" value="#{modificarPerfilC.estudiante.apellidoMat}" label="Apellido Materno">
+                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                </p:inputText>
+                <p:message for="apm" display="text"/>
+
+                <p:outputLabel for="edad" value="Edad" />
+                <p:inputText id="edad" required="true" value="#{modificarPerfilC.estudiante.edad}" label="Edad">
+                    <pe:keyFilter regEx="/[\d]/"/>
+                </p:inputText>
+                <p:message for="edad" display="text" />
+
+                <p:outputLabel for="grado" value="Grado:" />
+                <h:selectOneMenu id="grado" converter="#{gradoConverterBean}" value="#{modificarPerfilC.estudiante.grado}">
+                    <f:selectItems value="#{modificarPerfilC.grados}" />
+                </h:selectOneMenu>
+
+                <p:commandButton value="Modificar" action="#{modificarPerfilC.modifica()}"/>
+            </h:panelGrid>
+        </h:form>
+
+    </h:body>
+
 </html>

@@ -1,37 +1,32 @@
 package beans;
- 
-import javax.faces.application.FacesMessage;
+
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
-import logic.EstudianteL;
+import logic.GradoL;
 import model.Grado;
- 
-@FacesConverter("gradoConverter")
+
+@ManagedBean(name = "gradoConverterBean")
+@FacesConverter(value = "gradoConverter")
 public class GradoConverter implements Converter {
- 
-    public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        if(value != null && value.trim().length() > 0) {
-            try {
-                RegistroEstudianteC service = (RegistroEstudianteC) fc.getExternalContext().getApplicationMap().get("registroEstudianteC");
-                return service.getLstGrados().get(Integer.parseInt(value));
-            } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Grado no valido."));
-            }
-        }
-        else {
-            return null;
-        }
+
+    /* Conexión con la base */
+    private GradoL helper;
+
+    /* Constructor */
+    public GradoConverter() {
+        this.helper = new GradoL();
     }
- 
+
+    @Override
+    public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+        return this.helper.getGrado(value);
+    }
+
+    @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-        if(object != null) {
-            return String.valueOf(((Grado) object).getIdGrado());
-        }
-        else {
-            return null;
-        }
-    }   
+        return ((Grado) object).toString();
+    }
 }
