@@ -15,7 +15,7 @@ import org.hibernate.SessionFactory;
  *
  * @author rackso
  */
-public class util {
+public class Util {
 
     private static final SessionFactory sessionFactory;
     
