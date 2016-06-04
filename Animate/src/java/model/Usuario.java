@@ -78,7 +78,7 @@ public class Usuario  implements java.io.Serializable {
     }
 
     
-    @Column(name="password", nullable=false, length=32)
+    @Column(name="password", nullable=false, length=64)
     public String getPassword() {
         return this.password;
     }

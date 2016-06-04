@@ -10,9 +10,9 @@
                 <param name="sequence">juego_id_juego_seq</param>
             </generator>
         </id>
-        <version name="version" type="string">
+        <property name="version" type="string">
             <column name="version" length="32" not-null="true" />
-        </version>
+        </property>
         <many-to-one name="administrador" class="model.Administrador" fetch="select">
             <column name="id_admin" not-null="true" />
         </many-to-one>

@@ -7,7 +7,7 @@ CREATE DATABASE animaes_bd
 CREATE TABLE usuario(
 id_usuario SERIAL PRIMARY KEY,
 username VARCHAR(20) UNIQUE NOT NULL,
-password VARCHAR(32) NOT NULL,
+password VARCHAR(64) NOT NULL,
 correo VARCHAR(20) UNIQUE NOT NULL,
 fecha_de_registro TIMESTAMP NOT NULL
 );
