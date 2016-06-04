@@ -68,11 +68,10 @@ public class EstudianteL {
     public void modifica(Estudiante es) {
         try {
             if (con == null || !con.isOpen()) {
-                con = Util.getSessionFactory().getCurrentSession();
+                con = Util.getSessionFactory().openSession();
             }
             /* La transacción para modificar al estudiante */
             trans = con.beginTransaction();
-            System.out.println("HIAJSJD");
             con.update(es);
             trans.commit();
         } catch (Exception e) {
@@ -94,6 +93,28 @@ public class EstudianteL {
             e.printStackTrace();
         }
         return lstGrados;
+    }
+
+    /* Regresa al estudiante con el id dado */
+    public Estudiante getEstudiante(int id) {
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            trans = con.beginTransaction();
+            /* Buscamos al usuario */
+            Query q = con.createSQLQuery("select * from estudiante where "
+                    + "id_estudiante = :id")
+                    .addEntity(Estudiante.class)
+                    .setInteger("id", id);
+            return (Estudiante) q.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            trans.rollback();
+        } finally {
+            con.close();
+        }
+        return null;
     }
 
 }
