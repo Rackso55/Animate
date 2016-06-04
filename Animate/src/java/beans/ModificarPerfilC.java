@@ -29,10 +29,8 @@ public class ModificarPerfilC {
 
     /* Constructor */
     public ModificarPerfilC() {
-        estudiante = new Estudiante();
-        estudiante.setIdEstudiante(2);
-        /* estudiante = (Estudiante) FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().get("usuario");*/
+        estudiante = (Estudiante) FacesContext.getCurrentInstance().getExternalContext()
+                .getSessionMap().get("usuario");
         helper = new EstudianteL();
         grados = helper.listarGrados();
     }
