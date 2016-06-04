@@ -1,0 +1,183 @@
+.version.index /* version checker */
+{
+	color: #000014;
+	background-color: #DE421E;
+}
+
+.html
+{
+	background-color: #3399CC;
+}
+
+	#page
+	{
+		z-index: 1;
+		width: 960px;
+		min-height: 788px;
+		background-image: none;
+		border-radius: 30px 30px 0px 0px ;
+		border-style: none;
+		border-color: #000000;
+		background-color: #FFFFFF;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+#page_position_content
+{
+	padding-bottom: 90px;
+	width: 0.01px;
+}
+
+#u312
+{
+	z-index: 29;
+	width: 960px;
+	padding-bottom: 12px;
+}
+
+#u146
+{
+	z-index: 30;
+	width: 339px;
+	margin-right: -10000px;
+	margin-top: 20px;
+	left: 310px;
+}
+
+#pu114
+{
+	width: 10px;
+	margin-left: -100px;
+}
+
+#u114
+{
+	z-index: 3;
+	width: 1160px;
+	margin-right: -10000px;
+	background-color:#ff0003;
+}
+
+#u114
+{
+	z-index: 3;
+	width: 1160px;
+	margin-right: -10000px;
+	background-color:#ff0003;
+}
+
+#u115
+{
+	z-index: 3;
+	width: 1160px;
+	margin-right: -10000px;
+	margin-top:15px;
+	background-color:#000000;
+}
+
+#u120
+{
+	z-index: 6;
+	width: 100px;
+	margin-right: -10000px;
+	left: 316px;
+}
+
+#u120_states
+{
+	height: 52px;
+	width: 100px;
+}
+
+#u122
+{
+	z-index: 10;
+	width: 109px;
+	margin-right: -10000px;
+	left: 415px;
+}
+
+#u122_states
+{
+	height: 52px;
+	width: 109px;
+}
+
+#u123
+{
+	z-index: 14;
+	width: 167px;
+	margin-right: -10000px;
+	left: 523px;
+}
+
+#u123_states
+{
+	height: 52px;
+	width: 167px;
+}
+
+#u124
+{
+	z-index: 18;
+	width: 157px;
+	margin-right: -10000px;
+	left: 688px;
+}
+
+#u124_states
+{
+	height: 52px;
+	width: 157px;
+}
+
+#u101
+{
+	z-index: 2;
+	width: 5px;
+	height: 5px;
+	margin-left: 674px;
+	margin-top: 242px;
+}
+
+.ie #u101
+{
+	background-color: #FFFFFF;
+	opacity: 0.01;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+	filter: alpha(opacity=1);
+}
+
+#u153-6
+{
+	z-index: 21;
+	display: block;
+	vertical-align: top;
+	margin-left: 72px;
+	margin-top: 69px;
+	position: relative;
+}
+
+#u154
+{
+	z-index: 27;
+	width: 156px;
+	background-color: transparent;
+	margin-left: 402px;
+	margin-top: 43px;
+	position: relative;
+}
+
+body
+{
+	position: relative;
+	min-width: 1080px;
+	padding-top: 14px;
+}
+
+#page .verticalspacer
+{
+	clear: both;
+}
+

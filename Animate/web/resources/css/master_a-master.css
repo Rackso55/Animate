@@ -1,0 +1,89 @@
+#u312
+{
+	background-color: #FFFFFF;
+	border-radius: 30px 30px 0px 0px ;
+	position: relative;
+}
+
+#u146,#u114
+{
+	background-color: #FFFFFF;
+	position: relative;
+}
+
+#u120_states
+{
+	vertical-align: top;
+	background: url("../images/u120_states.png") no-repeat 0px 0px;
+}
+
+#u120:hover #u120_states
+{
+	background: url("../images/u120_states-r.png") no-repeat 0px 0px;
+}
+
+#u120.MuseLinkActive #u120_states
+{
+	background: url("../images/u120_states-a.png") no-repeat 0px 0px;
+}
+
+#u122_states
+{
+	vertical-align: top;
+	background: url("../images/u122_states.png") no-repeat 0px 0px;
+}
+
+#u122:hover #u122_states
+{
+	background: url("../images/u122_states-r.png") no-repeat 0px 0px;
+}
+
+#u122.MuseLinkActive #u122_states
+{
+	background: url("../images/u122_states-a.png") no-repeat 0px 0px;
+}
+
+#u123_states
+{
+	vertical-align: top;
+	background: url("../images/u123_states.png") no-repeat 0px 0px;
+}
+
+#u123:hover #u123_states
+{
+	background: url("../images/u123_states-r.png") no-repeat 0px 0px;
+}
+
+#u123.MuseLinkActive #u123_states
+{
+	background: url("../images/u123_states-a.png") no-repeat 0px 0px;
+}
+
+#u124_states
+{
+	vertical-align: top;
+	background: url("../images/u124_states.png") no-repeat 0px 0px;
+}
+
+#u124:hover #u124_states
+{
+	background: url("../images/u124_states-r.png") no-repeat 0px 0px;
+}
+
+#u124.MuseLinkActive #u124_states
+{
+	background: url("../images/u124_states-a.png") no-repeat 0px 0px;
+}
+
+#u120,#u122,#u123,#u124,#u101
+{
+	position: relative;
+}
+
+.page
+{
+		border-radius: 30px 30px 0px 0px ;
+	border-style: none;
+	border-color: #000000;
+	background-color: #FFFFFF;
+}
