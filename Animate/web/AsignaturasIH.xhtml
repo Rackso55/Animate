@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{asignaturaC.init}" />
+        </f:metadata>
+        <ui:composition template="plantillas/hola.xhtml">
+            <ui:define name="content">
+                <center>   
+                    <div class="two colelem clearfix">
+                        <div class="register">
+                            <h:panelGrid columns="1" styleClass="mi-panel-grid">
+                                <p:outputLabel value="Escoge una asignatura" styleClass="titulo"/>
+
+                                <p:dataTable value="#{asignaturaC.asignaturas}" var="asignatura">
+
+                                    <p:column headerText="Nombre">
+                                        <p:link value="#{asignatura.nombre}" outcome="TemasIH"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </h:panelGrid>
+                        </div>
+                    </div>
+
+                </center>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

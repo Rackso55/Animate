@@ -11,11 +11,11 @@
 
     <f:view locale="es_MX">
         <h:head>
+            <h:outputStylesheet name="css/juegos.css"/>
             <h:outputStylesheet name="css/site_global.css" />
             <h:outputStylesheet name="css/master_a-master.css" />
             <h:outputStylesheet name="css/index.css" />
             <h:outputStylesheet name="css/vistas.css" />
-            <h:outputStylesheet name="css/pf-override.css" />
             <h:outputStylesheet name="css/registrarse.css" />
 
         </h:head>
@@ -23,6 +23,9 @@
         <h:body >
             <c:if test="#{sesionC.verificarSesion() eq false}">
                 <ui:insert name="top" rendered="#{sesionC.verificarSesion() eq false}">
+                    <f:facet name="last">
+                        <h:outputStylesheet name="css/pf-override.css" />
+                    </f:facet>
                     <div class="clearfix" id="page"><!-- column -->
                         <div class="position_content" id="page_position_content">
                             <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
@@ -59,6 +62,9 @@
 
             <c:if test="#{sesionC.verificarSesion()}">
                 <ui:insert name="top">
+                    <f:facet name="last">
+                        <h:outputStylesheet name="css/pf-override.css" />
+                    </f:facet>
                     <div class="clearfix" id="page"><!-- column -->
                         <div class="position_content" id="page_position_content">
                             <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
@@ -70,7 +76,7 @@
                                 <div class="clip_frame grpelem" id="u115"><!-- sombrabajobanner --><img class="block" id="u115" src="" alt="" width="960" height="30"/>
                                 </div>
                                 <a class="nonblock nontext grpelem" id="u120" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
-                                <a class="nonblock nontext grpelem" id="u122" href="juegos.html"><!-- state-based BG images --><img id="u122_states" alt="JUEGOS" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u122" onclick="window.open('/Animate/faces/GradosIH.xhtml', '_self')"><!-- state-based BG images --><img id="u122_states" alt="JUEGOS" src="resources/images/blank.gif"/></a>
                                 <a class="nonblock nontext grpelem" id="u666" onclick="window.open('/Animate/faces/MiPerfilIH.xhtml', '_self')"><!-- state-based BG images --><img id="u666_states" alt="MI PERFIL" src="resources/images/blank.gif"/></a>
                                 <a class="nonblock nontext grpelem" id="u667" onclick="PF('dlg').show();"><!-- state-based BG images --><img id="u667_states" alt="CERRAR SESION" src="resources/images/blank.gif"/></a>
                             </div>

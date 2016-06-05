@@ -1,6 +1,8 @@
 /* Conexión relacionada a Grados */
 package logic;
 
+import java.util.List;
+import model.Asignatura;
 import model.Grado;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -11,6 +13,7 @@ public class GradoL {
 
     private Session con;
     private Transaction trans;
+    private List<Asignatura> asignaturas;
 
     /* Regresa el grado con el id dado */
     public Grado getGrado(int id) {
@@ -54,6 +57,21 @@ public class GradoL {
             con.close();
         }
         return null;
+    }
+
+    public List<Asignatura> getAsignaturas(Grado g) {
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Query q = con.createQuery("select a from Grado g join g.asignaturas a where "
+                    + "g.idGrado = :id")
+                    .setInteger("id", g.getIdGrado());
+            asignaturas = q.list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return asignaturas;
     }
 
 }

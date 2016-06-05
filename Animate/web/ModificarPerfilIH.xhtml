@@ -45,7 +45,7 @@
                                     <p:message for="edad" display="text" />
 
                                     <p:outputLabel for="grado" value="Grado" />
-                                    <h:selectOneMenu id="grado" converter="#{gradoConverterBean}" value="#{modificarPerfilC.estudiante.grado}">
+                                    <h:selectOneMenu id="grado" converter="omnifaces.SelectItemsConverter" value="#{modificarPerfilC.estudiante.grado}">
                                         <f:selectItems value="#{modificarPerfilC.grados}" />
                                     </h:selectOneMenu>
                                     <p:message for="grado" display="text" />

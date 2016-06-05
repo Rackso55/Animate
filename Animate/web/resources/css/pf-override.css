@@ -73,3 +73,24 @@
 .titulo {
     font-size: 30px;
 }
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only {
+    background: #ff0003;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-datatable thead th {
+    /*background: #3399CC;*/
+}
+
+.ui-datatable table {
+    table-layout: auto;
+}
+
+.ui-datatable.ui-widget{
+    margin-top: 50px;
+    margin-left: 100px;
+    padding-right: 300px;
+}

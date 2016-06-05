@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import logic.EstudianteL;
 import model.Estudiante;
 import model.Grado;
+import model.Usuario;
 
 @Named(value = "modificarPerfilC")
 @ManagedBean
@@ -19,6 +20,7 @@ public class ModificarPerfilC implements Serializable {
 
     /* El estudiante a modificar */
     private Estudiante estudiante;
+    private Usuario usuario;
     /* Conexión con la base */
     private EstudianteL helper;
     /* Mensaje */
@@ -28,9 +30,10 @@ public class ModificarPerfilC implements Serializable {
 
     /* Constructor */
     public ModificarPerfilC() {
-        estudiante = (Estudiante) FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().get("estudiante");
+        usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext()
+                .getSessionMap().get("usuario");
         helper = new EstudianteL();
+        estudiante = helper.getEstudiante(usuario);
         grados = helper.listarGrados();
     }
 
@@ -50,7 +53,7 @@ public class ModificarPerfilC implements Serializable {
         mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO,
                 "Datos actualizados con éxito", null);
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
-        return "index";
+        return "MiPerfilIH?faces-redirect=true";
     }
 
     /* Nos regresa al estudiante */
