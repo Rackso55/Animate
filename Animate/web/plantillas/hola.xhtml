@@ -22,7 +22,7 @@
 
         <h:body >
             <c:if test="#{sesionC.verificarSesion() eq false}">
-                <ui:insert name="top" rendered="#{sesionC.verificarSesion() eq false}">
+                <ui:insert name="top">
                     <f:facet name="last">
                         <h:outputStylesheet name="css/pf-override.css" />
                     </f:facet>
@@ -60,7 +60,7 @@
                 </ui:insert>
             </c:if>
 
-            <c:if test="#{sesionC.verificarSesion()}">
+            <c:if test="#{sesionC.verificarTipo() eq false}">
                 <ui:insert name="top">
                     <f:facet name="last">
                         <h:outputStylesheet name="css/pf-override.css" />

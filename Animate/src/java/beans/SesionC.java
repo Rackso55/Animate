@@ -26,7 +26,6 @@ public class SesionC implements Serializable {
     private Usuario es = new Usuario();
     private boolean tipo;
     private FacesMessage mensaje;
-    private Administrador a = new Administrador();
 
     public Usuario getUsuario() {
         return es;
@@ -38,7 +37,7 @@ public class SesionC implements Serializable {
 
     public String verificarDatos() throws Exception {
         SesionL sl = new SesionL();
-        String resultado;
+        String resultado = "";
         if (tipo == false) {
             Usuario est;
             try {
@@ -55,29 +54,32 @@ public class SesionC implements Serializable {
                 }
 
             } catch (Exception e) {
-                throw e;
+                e.printStackTrace();
             }
-        } else {
-            resultado = "";
-        }/* else {    
-            Administrador adm;
-            try {
-            adm = sl.verificarDatos(this.a);
-            if (adm != null) {
+        }
+        return resultado;
+    }
+
+    public String verificarDatosAdmin() throws Exception {
+        SesionL sl = new SesionL();
+        String resultado = "";
+        Usuario est;
+        try {
+            est = sl.verificarDatosAdmin(es);
+            if (est != null) {
                 FacesContext.getCurrentInstance().getExternalContext()
-                        .getSessionMap().put("usuario", adm);
-                resultado = "inicioAdmin";
-                a = adm;
+                        .getSessionMap().put("usuario", est);
+                resultado = "InicioAdminIH?faces-redirect=true";
+                es = est;
             } else {
                 mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
                 FacesContext.getCurrentInstance().addMessage(null, mensaje);
                 resultado = "";
             }
-            } catch (Exception e) {
-            throw e;
-            }
-        }*/
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return resultado;
     }
 
@@ -104,11 +106,11 @@ public class SesionC implements Serializable {
         }
     }
 
+    //True si es admin
     public boolean verificarTipo() {
-        String tipo = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario").getClass().getSimpleName();
-        if (tipo.equals("Administrador")) {
-            return true;
-        }
+        SesionL sL = new SesionL();
+        if(verificarSesion())
+            return sL.verificarTipo(es);
         return false;
     }
 
