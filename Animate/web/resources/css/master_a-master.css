@@ -75,7 +75,39 @@
 	background: url("../images/u124_states-a.png") no-repeat 0px 0px;
 }
 
-#u120,#u122,#u123,#u124,#u101
+#u666_states
+{
+	vertical-align: top;
+	background: url("../images/u666_states.png") no-repeat 0px 0px;
+}
+
+#u666:hover #u666_states
+{
+	background: url("../images/u666_states-r.png") no-repeat 0px 0px;
+}
+
+#u666.MuseLinkActive #u666_states
+{
+	background: url("../images/u666_states-a.png") no-repeat 0px 0px;
+}
+
+#u667_states
+{
+	vertical-align: top;
+	background: url("../images/u667_states.png") no-repeat 0px 0px;
+}
+
+#u667:hover #u667_states
+{
+	background: url("../images/u667_states-r.png") no-repeat 0px 0px;
+}
+
+#u667.MuseLinkActive #u667_states
+{
+	background: url("../images/u667_states-a.png") no-repeat 0px 0px;
+}
+
+#u120,#u122,#u123,#u124,#u101,#u666,#u667
 {
 	position: relative;
 }

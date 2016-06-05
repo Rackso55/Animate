@@ -114,5 +114,24 @@ public class EstudianteL {
         }
         return null;
     }
+    
+     /* Regresa al estudiante asociado al usuario */
+    public Estudiante getEstudiante(Usuario u) {
+        Estudiante e = null;
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Query q = con.createQuery("select e from Estudiante e join e.usuario u where "
+                    + "u.idUsuario = :id")
+                    .setInteger("id", u.getIdUsuario());
+            e = (Estudiante) q.uniqueResult();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            con.close();
+            return e;
+        }
+    }
 
 }

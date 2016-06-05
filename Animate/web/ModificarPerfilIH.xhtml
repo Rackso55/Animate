@@ -7,42 +7,57 @@
       xmlns:pe="http://primefaces.org/ui/extensions">
 
     <h:body>
-        <h:form>
-            <h2>Modificar perfil</h2>
-            <p:messages autoUpdate="true" showDetail="true" closable="true"/>
-            <h:panelGrid id="grid" columns="3">
-                <p:outputLabel for="nombre" value="Nombre" />
-                <p:inputText id="nombre" required="true" value="#{modificarPerfilC.estudiante.nombre}" label="Nombre">
-                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                </p:inputText>
-                <p:message for="nombre" display="text"/>
+        <ui:composition template="plantillas/hola.xhtml">
+            <ui:define name="content">
+                <center>   
+                    <div class="two colelem clearfix">
+                        <div class="register">
+                            <h:form>
+                                <p:messages autoUpdate="true" showDetail="true" closable="true"/>
+                                <h:panelGrid id="grid" columns="3" styleClass="mi-panel-grid">
+                                    
+                                    <p:outputLabel value=""/>
+                                    <p:outputLabel value="Modificar perfil" styleClass="titulo"/>
+                                    <p:outputLabel value=""/>
+                                    
+                                    <p:outputLabel for="nombre" value="Nombre" />
+                                    <p:inputText id="nombre" required="true" value="#{modificarPerfilC.estudiante.nombre}" label="Nombre">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="nombre" display="text"/>
 
-                <p:outputLabel for="app" value="Apellido Paterno" />
-                <p:inputText id="app" required="true" value="#{modificarPerfilC.estudiante.apellidoPat}" label="Apellido Paterno">
-                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                </p:inputText>
-                <p:message for="app" display="text"/>
+                                    <p:outputLabel for="app" value="Apellido Paterno" />
+                                    <p:inputText id="app" required="true" value="#{modificarPerfilC.estudiante.apellidoPat}" label="Apellido Paterno">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="app" display="text"/>
 
-                <p:outputLabel for="apm" value="Apellido Materno" />
-                <p:inputText id="apm" required="true" value="#{modificarPerfilC.estudiante.apellidoMat}" label="Apellido Materno">
-                    <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
-                </p:inputText>
-                <p:message for="apm" display="text"/>
+                                    <p:outputLabel for="apm" value="Apellido Materno" />
+                                    <p:inputText id="apm" required="true" value="#{modificarPerfilC.estudiante.apellidoMat}" label="Apellido Materno">
+                                        <pe:keyFilter regEx="/[a-z_' üñ]/i"/>
+                                    </p:inputText>
+                                    <p:message for="apm" display="text"/>
 
-                <p:outputLabel for="edad" value="Edad" />
-                <p:inputText id="edad" required="true" value="#{modificarPerfilC.estudiante.edad}" label="Edad">
-                    <pe:keyFilter regEx="/[\d]/"/>
-                </p:inputText>
-                <p:message for="edad" display="text" />
+                                    <p:outputLabel for="edad" value="Edad" />
+                                    <p:inputText id="edad" required="true" value="#{modificarPerfilC.estudiante.edad}" label="Edad">
+                                        <pe:keyFilter regEx="/[\d]/"/>
+                                    </p:inputText>
+                                    <p:message for="edad" display="text" />
 
-                <p:outputLabel for="grado" value="Grado:" />
-                <h:selectOneMenu id="grado" converter="#{gradoConverterBean}" value="#{modificarPerfilC.estudiante.grado}">
-                    <f:selectItems value="#{modificarPerfilC.grados}" />
-                </h:selectOneMenu>
+                                    <p:outputLabel for="grado" value="Grado" />
+                                    <h:selectOneMenu id="grado" converter="#{gradoConverterBean}" value="#{modificarPerfilC.estudiante.grado}">
+                                        <f:selectItems value="#{modificarPerfilC.grados}" />
+                                    </h:selectOneMenu>
+                                    <p:message for="grado" display="text" />
 
-                <p:commandButton value="Modificar" action="#{modificarPerfilC.modifica()}"/>
-            </h:panelGrid>
-        </h:form>
+                                    <p:commandButton value="Modificar" action="#{modificarPerfilC.modifica()}"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </div>
+                </center>
+            </ui:define>
+        </ui:composition>
 
     </h:body>
 

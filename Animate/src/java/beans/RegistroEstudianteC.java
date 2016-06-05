@@ -6,6 +6,8 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import logic.EstudianteL;
 import model.Estudiante;
 import model.Grado;
@@ -13,7 +15,7 @@ import model.Usuario;
 
 @Named(value = "registroEstudianteC")
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class RegistroEstudianteC implements Serializable {
 
     Estudiante estudiante;
@@ -62,7 +64,13 @@ public class RegistroEstudianteC implements Serializable {
         this.lstGrados = lstGrados;
     }
     
-    public void registrar() {
+    public String registrar() {
         mensaje = ayudante.registrar(usuario, estudiante, confirmacion);
+        if(mensaje == null)
+            return "index?faces-redirect=true";
+        else {
+            FacesContext.getCurrentInstance().addMessage(null, mensaje);
+            return "";
+        }
     }
 }

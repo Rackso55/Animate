@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions">
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 
     <f:view locale="es_MX">
@@ -16,45 +17,94 @@
             <h:outputStylesheet name="css/vistas.css" />
             <h:outputStylesheet name="css/pf-override.css" />
             <h:outputStylesheet name="css/registrarse.css" />
-            
+
         </h:head>
 
         <h:body >
-            <ui:insert name="top">
-                <div class="clearfix" id="page"><!-- column -->
-                    <div class="position_content" id="page_position_content">
-                        <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
-                            <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u146" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- image --><img class="block" id="u146_img" src="resources/images/banner.png" alt="" width="339" height="142"/></a>
-                        </div>
-                        <div class="clearfix colelem" id="pu114"><!-- group -->
-                            <div class="clip_frame grpelem" id="u114"><!-- bajobanner --><img class="block" id="u114" src="" alt="" width="960" height="50"/>
+            <c:if test="#{sesionC.verificarSesion() eq false}">
+                <ui:insert name="top" rendered="#{sesionC.verificarSesion() eq false}">
+                    <div class="clearfix" id="page"><!-- column -->
+                        <div class="position_content" id="page_position_content">
+                            <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
+                                <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u146" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- image --><img class="block" id="u146_img" src="resources/images/banner.png" alt="" width="339" height="142"/></a>
                             </div>
-                            <div class="clip_frame grpelem" id="u115"><!-- sombrabajobanner --><img class="block" id="u115" src="" alt="" width="960" height="30"/>
+                            <div class="clearfix colelem" id="pu114"><!-- group -->
+                                <div class="clip_frame grpelem" id="u114"><!-- bajobanner --><img class="block" id="u114" src="" alt="" width="960" height="50"/>
+                                </div>
+                                <div class="clip_frame grpelem" id="u115"><!-- sombrabajobanner --><img class="block" id="u115" src="" alt="" width="960" height="30"/>
+                                </div>
+                                <a class="nonblock nontext grpelem" id="u120" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u123" onclick="window.open('/Animate/faces/FormInicioSesionIH.xhtml', '_self')"><!-- state-based BG images --><img id="u123_states" alt="INICIAR SESIÓN" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u124" onclick="window.open('/Animate/faces/RegistroEstudianteIH.xhtml', '_self')"><!-- state-based BG images --><img id="u124_states" alt="REGISTRARSE" src="resources/images/blank.gif"/></a>
                             </div>
-                            <a class="nonblock nontext grpelem" id="u120" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
-                            <a class="nonblock nontext grpelem" id="u122" href="juegos.html"><!-- state-based BG images --><img id="u122_states" alt="JUEGOS" src="resources/images/blank.gif"/></a>
-                            <a class="nonblock nontext grpelem" id="u123" onclick="window.open('/Animate/faces/FormInicioSesionIH.xhtml', '_self')"><!-- state-based BG images --><img id="u123_states" alt="INICIAR SESIÓN" src="resources/images/blank.gif"/></a>
-                            <a class="nonblock nontext grpelem" id="u124" onclick="window.open('/Animate/faces/RegistroEstudianteIH.xhtml', '_self')"><!-- state-based BG images --><img id="u124_states" alt="REGISTRARSE" src="resources/images/blank.gif"/></a>
+                            <ui:insert name="content">
+
+                            </ui:insert> 
+
+
                         </div>
-                        <ui:insert name="content">
-
-                        </ui:insert> 
-
-
                     </div>
-                </div>
-                <div class="preload_images">
-                    <img class="preload" src="resources/images/u120_states-r.png" alt=""/>
-                    <img class="preload" src="resources/images/u120_states-a.png" alt=""/>
-                    <img class="preload" src="resources/images/u122_states-r.png" alt=""/>
-                    <img class="preload" src="resources/images/u122_states-a.png" alt=""/>
-                    <img class="preload" src="resources/images/u123_states-r.png" alt=""/>
-                    <img class="preload" src="resources/images/u123_states-a.png" alt=""/>
-                    <img class="preload" src="resources/images/u124_states-r.png" alt=""/>
-                    <img class="preload" src="resources/images/u124_states-a.png" alt=""/>
-                </div>
-            </ui:insert>
+                    <div class="preload_images">
+                        <img class="preload" src="resources/images/u120_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u120_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u122_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u122_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u123_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u123_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u124_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u124_states-a.png" alt=""/>
+                    </div>
+                </ui:insert>
+            </c:if>
 
+            <c:if test="#{sesionC.verificarSesion()}">
+                <ui:insert name="top">
+                    <div class="clearfix" id="page"><!-- column -->
+                        <div class="position_content" id="page_position_content">
+                            <div class="rounded-corners clearfix colelem" id="u312"><!-- group -->
+                                <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u146" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- image --><img class="block" id="u146_img" src="resources/images/banner.png" alt="" width="339" height="142"/></a>
+                            </div>
+                            <div class="clearfix colelem" id="pu114"><!-- group -->
+                                <div class="clip_frame grpelem" id="u114"><!-- bajobanner --><img class="block" id="u114" src="" alt="" width="960" height="50"/>
+                                </div>
+                                <div class="clip_frame grpelem" id="u115"><!-- sombrabajobanner --><img class="block" id="u115" src="" alt="" width="960" height="30"/>
+                                </div>
+                                <a class="nonblock nontext grpelem" id="u120" onclick="window.open('/Animate/faces/index.xhtml', '_self')"><!-- state-based BG images --><img id="u120_states" alt="INICIO" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u122" href="juegos.html"><!-- state-based BG images --><img id="u122_states" alt="JUEGOS" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u666" onclick="window.open('/Animate/faces/MiPerfilIH.xhtml', '_self')"><!-- state-based BG images --><img id="u666_states" alt="MI PERFIL" src="resources/images/blank.gif"/></a>
+                                <a class="nonblock nontext grpelem" id="u667" onclick="PF('dlg').show();"><!-- state-based BG images --><img id="u667_states" alt="CERRAR SESION" src="resources/images/blank.gif"/></a>
+                            </div>
+                            <h:form>
+                                <p:dialog header="Cerrar sesion" widgetVar="dlg" modal="true" height="100" width="200" resizable="false">
+                                    <p:outputLabel value="Estas seguro de querer cerrar tu sesion?"/>
+                                    <br></br>
+                                    <p:commandButton value="Si" action="#{sesionC.cerrarSesion()}" ajax="false"/>
+                                    <!--<p:commandButton type="button" value="No" onclick="PF('dlg').close();"/>-->
+                                </p:dialog> 
+                            </h:form>
+                            <ui:insert name="content">
+
+                            </ui:insert> 
+
+
+                        </div>
+                    </div>
+                    <div class="preload_images">
+                        <img class="preload" src="resources/images/u120_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u120_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u122_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u122_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u123_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u123_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u124_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u124_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u666_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u666_states-r.png" alt=""/>
+                        <img class="preload" src="resources/images/u667_states-a.png" alt=""/>
+                        <img class="preload" src="resources/images/u667_states-r.png" alt=""/>
+                    </div>
+                </ui:insert>
+            </c:if>
         </h:body>
     </f:view>
 </html>

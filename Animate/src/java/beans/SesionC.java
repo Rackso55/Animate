@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.io.IOException;
 import javax.inject.Named;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
@@ -17,18 +18,16 @@ import model.Estudiante;
 import model.Usuario;
 import model.Administrador;
 
-
 @Named(value = "sesionC")
 @SessionScoped
 @ManagedBean
 public class SesionC implements Serializable {
 
-   private Usuario es = new Usuario();
-   private boolean tipo;
-   private FacesMessage mensaje;
-   private Administrador a = new Administrador();
+    private Usuario es = new Usuario();
+    private boolean tipo;
+    private FacesMessage mensaje;
+    private Administrador a = new Administrador();
 
-   
     public Usuario getUsuario() {
         return es;
     }
@@ -40,23 +39,23 @@ public class SesionC implements Serializable {
     public String verificarDatos() throws Exception {
         SesionL sl = new SesionL();
         String resultado;
-        if(tipo == false) {
+        if (tipo == false) {
             Usuario est;
             try {
-            est = sl.verificarDatos(this.es);
-            if (est != null) {
-                FacesContext.getCurrentInstance().getExternalContext()
-                        .getSessionMap().put("usuario", est);
-                resultado = "PaginaInicioSesionIH";
-                es = est;
-            } else {
-                mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
-                FacesContext.getCurrentInstance().addMessage(null, mensaje);
-                resultado = "";
-            }
-           
+                est = sl.verificarDatos(this.es);
+                if (est != null) {
+                    FacesContext.getCurrentInstance().getExternalContext()
+                            .getSessionMap().put("usuario", est);
+                    resultado = "index?faces-redirect=true";
+                    es = est;
+                } else {
+                    mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
+                    FacesContext.getCurrentInstance().addMessage(null, mensaje);
+                    resultado = "";
+                }
+
             } catch (Exception e) {
-            throw e;
+                throw e;
             }
         } else {
             resultado = "";
@@ -78,7 +77,7 @@ public class SesionC implements Serializable {
             throw e;
             }
         }*/
-        
+
         return resultado;
     }
 
@@ -94,21 +93,23 @@ public class SesionC implements Serializable {
         return estado;
     }
 
-    public String cerrarSesion() {
+    public void cerrarSesion() {
         FacesContext.getCurrentInstance().getExternalContext()
                 .invalidateSession();
-        /* is all of this necessary?*/
-        es = null;
-        a = null;
-        return "index.xhtml";
-    }    
-    
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public boolean verificarTipo() {
         String tipo = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario").getClass().getSimpleName();
-        if(tipo.equals("Administrador"))
+        if (tipo.equals("Administrador")) {
             return true;
+        }
         return false;
     }
 
-        
 }
