@@ -24,7 +24,9 @@
                                 <p:dataTable value="#{asignaturaC.asignaturas}" var="asignatura">
 
                                     <p:column headerText="Nombre">
-                                        <p:link value="#{asignatura.nombre}" outcome="TemasIH"/>
+                                        <p:link value="#{asignatura.nombre}" outcome="TemasIH">
+                                            <f:param name="asignaturaId" value="#{asignatura.idAsignatura}"/>
+                                        </p:link>
                                     </p:column>
                                 </p:dataTable>
                             </h:panelGrid>

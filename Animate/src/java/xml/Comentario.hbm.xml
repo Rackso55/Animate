@@ -6,7 +6,7 @@
     <class name="model.Comentario" table="comentario" schema="public" optimistic-lock="version">
         <id name="idComentario" type="int">
             <column name="id_comentario" />
-             <generator class="sequence" >
+            <generator class="sequence" >
                 <param name="sequence">comentario_id_comentario_seq</param>
             </generator>
         </id>
@@ -18,6 +18,9 @@
         </many-to-one>
         <property name="fecha" type="timestamp">
             <column name="fecha" length="29" not-null="true" />
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

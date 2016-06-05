@@ -1,5 +1,5 @@
 package model;
-// Generated Jun 3, 2016 5:58:00 PM by Hibernate Tools 4.3.1
+// Generated Jun 5, 2016 2:51:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -27,15 +27,17 @@ public class Comentario  implements java.io.Serializable {
      private Estudiante estudiante;
      private Juego juego;
      private Date fecha;
+     private String comentario;
 
     public Comentario() {
     }
 
-    public Comentario(int idComentario, Estudiante estudiante, Juego juego, Date fecha) {
+    public Comentario(int idComentario, Estudiante estudiante, Juego juego, Date fecha, String comentario) {
        this.idComentario = idComentario;
        this.estudiante = estudiante;
        this.juego = juego;
        this.fecha = fecha;
+       this.comentario = comentario;
     }
    
      @Id 
@@ -78,6 +80,16 @@ public class Comentario  implements java.io.Serializable {
     
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    
+    @Column(name="comentario", nullable=false)
+    public String getComentario() {
+        return this.comentario;
+    }
+    
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
 

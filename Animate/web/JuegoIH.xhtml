@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{juegoC.init}" />
+        </f:metadata>
+        <ui:composition template="plantillas/hola.xhtml">
+            <ui:define name="content">
+                <center>   
+                    <div class="two colelem clearfix">
+                        <div class="register">
+                            <h:panelGrid columns="2" styleClass="mi-panel-grid">
+                                <p:outputLabel value="#{juegoC.juego.tema}" styleClass="titulo"/>
+                                <p:outputLabel value=""/>
+                                <p:outputLabel for="nombre" value="Juego:"/>
+                                <p:outputLabel id="nombre" value="#{juegoC.juego.nombre}"/>
+                                <p:outputLabel for="autor" value="Autor:"/>
+                                <p:outputLabel id="autor" value="#{juegoC.juego.autor}"/>
+                                <p:outputLabel for="version" value="Versión:"/>
+                                <p:outputLabel id="version" value="#{juegoC.juego.version}"/>
+                                <p:outputLabel for="descripcion" value="Descripción:"/>
+                                <p:outputLabel id="descripcion" value="#{juegoC.juego.descripcion}"/>
+                                <p:button value="Jugar" outcome="index"/>
+                            </h:panelGrid>
+                            <h:form>
+                                <h:panelGrid columns="2" styleClass="mi-panel-grid">
+                                    <p:outputLabel for="comentario" value="Escribe un comentario"/>
+                                    <p:inputTextarea id="comentario" value="#{juegoC.comentario.comentario}" required="true"/>
+                                    <p:outputLabel value=""/>
+                                    <p:commandButton value="Comenta" actionListener="#{juegoC.comentar(sesionC.usuario)}" update="@form">
+                                        <f:param name="juegoId" value="#{juegoC.juego.idJuego}"/>
+                                    </p:commandButton>
+                                </h:panelGrid>
+                                <p:dataTable value="#{juegoC.comentarios}" var="comentario">
+                                    <p:column headerText="Usuario">
+                                        <p:outputLabel value="#{comentario.estudiante.nombre}"/>
+                                    </p:column>
+                                    <p:column headerText="Comentario">
+                                        <p:outputLabel value="#{comentario.comentario}"/>
+                                    </p:column>
+                                    <p:column headerText="Fecha">
+                                        <p:outputLabel value="#{juegoC.formateaFecha(comentario.fecha)}"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </h:form>
+                        </div>
+                    </div>
+
+                </center>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

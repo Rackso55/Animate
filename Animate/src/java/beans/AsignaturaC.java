@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -12,7 +13,7 @@ import model.Grado;
 @Named(value = "asignaturaC")
 @ViewScoped
 @ManagedBean
-public class AsignaturaC {
+public class AsignaturaC implements Serializable {
 
     Grado grado;
     GradoL helper;
