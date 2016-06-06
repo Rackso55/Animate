@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
@@ -13,7 +14,7 @@ import model.Juego;
 @Named(value = "temasC")
 @ManagedBean
 @RequestScoped
-public class TemasC {
+public class TemasC implements Serializable {
     
     private List<Juego> juegos;
     private JuegoL helper;

@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -11,7 +12,7 @@ import model.Grado;
 @Named(value = "gradosC")
 @ManagedBean
 @RequestScoped
-public class GradosC {
+public class GradosC implements Serializable {
 
     private List<Grado> grados;
     private EstudianteL helper;

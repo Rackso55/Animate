@@ -7,38 +7,34 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Inicio Sesion</title>
     </h:head>
     <h:body>
         <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
-                <center>   
-                    <div class="two colelem clearfix">
-                        <div class="register">
-                            <h:form>
+                <div id='contenedor' class="col-md-offset-1 col-md-10">
+                    <f:facet name="last">
+                        <h:outputStylesheet name="css/pf-override.css" />
+                    </f:facet>
+                    <center>
+                        <p:outputLabel value="Iniciar Sesion" styleClass="titulo"/>
+                        <h:form>
 
-                                <p:messages autoUpdate="true" showDetail="true" closable="true"/>
-                                <h:panelGrid columns = "2" styleClass="mi-panel-grid">
+                            <p:messages autoUpdate="true" showDetail="true" closable="true"/>
+                            <h:panelGrid columns = "2" styleClass="mi-panel-grid">                                
 
-                                    <p:outputLabel value=""/>
-                                    <p:outputLabel value="Iniciar Sesion" styleClass="titulo"/>
+                                <p:outputLabel for="usuario" value ="Usuario" />
+                                <p:inputText id="usuario" value="#{sesionC.usuario.username}" required="true" />
 
-                                    <p:outputLabel for="usuario" value ="Usuario" />
-                                    <p:inputText id="usuario" value="#{sesionC.usuario.username}" required="true" />
+                                <p:outputLabel for="contrasenia" value="Contraseña" />
+                                <p:password id="contrasenia" value="#{sesionC.usuario.password}" required="true" />
 
-                                    <p:outputLabel for="contrasenia" value="Contraseña" />
-                                    <p:password id="contrasenia" value="#{sesionC.usuario.password}" required="true" />
+                            </h:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{sesionC.verificarDatos()}" styleClass="decora_boton"/>
 
-                                    <p:outputLabel value=""/>
-                                    <p:commandButton value="Iniciar Sesion" action="#{sesionC.verificarDatos()}" />      
-
-                                </h:panelGrid>
-
-                            </h:form>
-                        </div>
-                    </div>
-
-                </center>
+                        </h:form>
+                    </center>
+                </div>
             </ui:define>
         </ui:composition>
 

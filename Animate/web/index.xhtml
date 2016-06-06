@@ -12,17 +12,28 @@
 
         <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
-                <!--<div class="colelem" id="u101"> simple frame </div>-->
-                <c:if test="#{sesionC.verificarSesion() eq false}">
-                    <img class="colelem" id="u153-6" alt="Estudiar es importante, ¡divertirse también!" width="816" height="62" src="resources/images/u153-6.png"/><!-- rasterized frame -->
-                    <a class="nonblock nontext clip_frame colelem" id="u154" onclick="window.open('/Animate/faces/FormInicioSesionIH.xhtml', '_self')"><!-- image --><img class="block" id="u154_img" src="resources/images/botonentrar.png" alt="" width="156" height="60"/></a>
-                    <div class="verticalspacer"></div>
-                </c:if>
-                <c:if test="#{sesionC.verificarSesion()}">
-                    <img class="colelem" id="u153-6" alt="Estudiar es importante, ¡divertirse también!" width="816" height="62" src="resources/images/u153-6.png"/><!-- rasterized frame -->
-                    <a class="nonblock nontext clip_frame colelem" id="u154" onclick="window.open('/Animate/faces/GradosIH.xhtml', '_self')"><!-- image --><img class="block" id="u154_img" src="resources/images/botonentrar.png" alt="" width="156" height="60"/></a>
-                    <div class="verticalspacer"></div>
-                </c:if>
+                <div id="principal-cuerpo" class="col-md-offset-1 col-md-10"/>
+            </ui:define>
+            
+            <ui:define name="bottom">
+                    <c:if test="#{sesionC.verificarSesion() eq false}">
+                        <div id="principal-cita" class="col-md-offset-1 col-md-10">
+                            <img id="cita" src="resources/images/u153-6.png" alt=""/>
+                        </div>
+
+                        <div id="principal-boton" class="col-md-offset-1 col-md-10">
+                            <a class="boton-entrar" onclick="window.open('/Animate/faces/FormInicioSesionIH.xhtml', '_self')">entrar</a>
+                        </div>
+                    </c:if>
+                    <c:if test="#{sesionC.verificarSesion() and sesionC.verificarTipo() eq false}">
+                        <div id="principal-cita" class="col-md-offset-1 col-md-10">
+                            <img id="cita" src="resources/images/u153-6.png" alt=""/>
+                        </div>
+
+                        <div id="principal-boton" class="col-md-offset-1 col-md-10">
+                            <a class="boton-entrar" onclick="window.open('/Animate/faces/GradosIH.xhtml', '_self')">entrar</a>
+                        </div>
+                    </c:if>
             </ui:define>
         </ui:composition>
 

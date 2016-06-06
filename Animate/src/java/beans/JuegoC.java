@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ import model.Usuario;
 @Named(value = "juegoC")
 @ManagedBean
 @ViewScoped
-public class JuegoC {
+public class JuegoC implements Serializable {
 
     private JuegoL helper;
     private Juego juego;

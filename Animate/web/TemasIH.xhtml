@@ -15,25 +15,36 @@
         </f:metadata>
         <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
-                <center>   
-                    <div class="two colelem clearfix">
-                        <div class="register">
-                            <h:panelGrid columns="1" styleClass="mi-panel-grid">
-                                <p:outputLabel value="#{temasC.asignatura.nombre}" styleClass="titulo"/>
-                                <p:outputLabel value="Escoge una tema" styleClass="titulo"/>
+                <f:facet name="last">
+                    <h:outputStylesheet name="css/pf-override.css" />
+                </f:facet>
 
-                                <p:dataTable value="#{temasC.juegos}" var="juego">
-                                    <p:column headerText="Nombre">
+                <div id="principal-cuerpo-admin" class="col-md-offset-1 col-md-10">
+                    <center>
+                        <h3>Escoge un tema de #{temasC.asignatura.nombre}</h3>
+                    </center>
+                    <br></br>
+                    <table class='table table-striped table-bordered' >
+                        <thead>
+                            <tr class="info">
+                                <th>Tema</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <p:dataList value="#{temasC.juegos}" var="juego" type="definition">
+                                <tr>
+                                    <th>
                                         <p:link value="#{juego.tema}" outcome="JuegoIH">
                                             <f:param name="juegoId" value="#{juego.idJuego}" />
                                         </p:link>
-                                    </p:column>
-                                </p:dataTable>
-                            </h:panelGrid>
-                        </div>
-                    </div>
-
-                </center>
+                                    </th>
+                                </tr>
+                            </p:dataList>
+                        </tbody>
+                    </table>
+                </div>
+                
             </ui:define>
         </ui:composition>
 

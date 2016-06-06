@@ -11,38 +11,39 @@
         <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
 
-                <center>   
-                    <div class="two colelem clearfix">
-                        <div class="register">
-                            <h:form>
-                                <h:panelGrid columns="2" styleClass="mi-panel-grid">
-                                    <p:outputLabel value="Nombre" for="nombre"/>
-                                    <p:outputLabel id="nombre" value="#{miPerfilC.estudiante.nombre}"/>
+                <f:facet name="last">
+                    <h:outputStylesheet name="css/pf-override.css" />
+                </f:facet>
+                <div id='contenedor_perfil' class="col-md-offset-1 col-md-10">			
+                    <center>
+                        <h:form>
+                            <h:panelGrid columns="2" styleClass="mi-panel-grid2">
+                                <p:outputLabel value="Nombre" for="nombre"/>
+                                <h:outputText id="nombre" value="#{miPerfilC.estudiante.nombre}"/>
 
-                                    <p:outputLabel value="Apellido paterno" for="app"/>
-                                    <p:outputLabel id="app" value="#{miPerfilC.estudiante.apellidoPat}"/>
+                                <p:outputLabel value="Apellido paterno" for="app"/>
+                                <h:outputText  id="app" value="#{miPerfilC.estudiante.apellidoPat}"/>
 
-                                    <p:outputLabel value="Apellido materno" for="apm"/>
-                                    <p:outputLabel id="apm" value="#{miPerfilC.estudiante.apellidoMat}"/>
+                                <p:outputLabel value="Apellido materno" for="apm"/>
+                                <h:outputText  id="apm" value="#{miPerfilC.estudiante.apellidoMat}"/>
 
-                                    <p:outputLabel value="Nombre de usuario" for="nombreusr"/>
-                                    <p:outputLabel id="nombreusr" value="#{miPerfilC.usuario.username}"/>
+                                <p:outputLabel value="Nombre de usuario" for="nombreusr"/>
+                                <h:outputText  id="nombreusr" value="#{miPerfilC.usuario.username}"/>
 
-                                    <p:outputLabel value="Correo" for="correo"/>
-                                    <p:outputLabel id="correo" value="#{miPerfilC.usuario.correo}"/>
+                                <p:outputLabel value="Correo" for="correo"/>
+                                <h:outputText  id="correo" value="#{miPerfilC.usuario.correo}"/>
 
-                                    <p:outputLabel value="Edad" for="edad"/>
-                                    <p:outputLabel id="edad" value="#{miPerfilC.estudiante.edad}"/>
+                                <p:outputLabel value="Edad" for="edad"/>
+                                <h:outputText  id="edad" value="#{miPerfilC.estudiante.edad}"/>
 
-                                    <p:outputLabel value="Grado" for="grado"/>
-                                    <p:outputLabel id="grado" value="#{miPerfilC.getGrado()}"/>
-                                    
-                                    <p:button value="Modifica tu perfil" outcome="ModificarPerfilIH"/>
-                                </h:panelGrid>
-                            </h:form>
-                        </div>
-                    </div>
-                </center>
+                                <p:outputLabel value="Grado" for="grado"/>
+                                <h:outputText  id="grado" value="#{miPerfilC.getGrado()}"/>
+
+                            </h:panelGrid>
+                            <p:button value="Editar" outcome="ModificarPerfilIH" styleClass="decora_boton"/>
+                        </h:form>
+                    </center>
+                </div>
 
             </ui:define>
         </ui:composition>

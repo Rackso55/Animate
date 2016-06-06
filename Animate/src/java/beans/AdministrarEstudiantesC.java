@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
@@ -13,7 +14,7 @@ import model.Estudiante;
 @Named(value = "administrarEstudiantesC")
 @ManagedBean
 @ViewScoped
-public class AdministrarEstudiantesC {
+public class AdministrarEstudiantesC implements Serializable {
 
     private EstudianteL helper;
     private List<Estudiante> estudiantes;

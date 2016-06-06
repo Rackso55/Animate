@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.Serializable;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
@@ -13,7 +14,7 @@ import model.Usuario;
 @Named(value = "miPerfilC")
 @ManagedBean
 @RequestScoped
-public class MiPerfilC {
+public class MiPerfilC implements Serializable {
     
     private Estudiante estudiante;
     private Usuario usuario;
