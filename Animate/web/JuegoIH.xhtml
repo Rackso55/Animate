@@ -30,8 +30,8 @@
                             <p:outputLabel id="version" value="#{juegoC.juego.version}"/>
                             <p:outputLabel for="descripcion" value="Descripción:"/>
                             <p:outputLabel id="descripcion" value="#{juegoC.juego.descripcion}"/>
-                        </h:panelGrid>
-                        <p:button value="Jugar" outcome="#{juegoC.juego.ruta}index.html" styleClass="decora_boton"/>
+                        </h:panelGrid> 
+                         <a href="http:/#{juegoC.juego.ruta}index.html" class='decora_boton'> JUGAR </a>
                         <p:separator/>
                         <h:form>
                             <h:panelGrid columns="3" styleClass="mi-panel-grid">
