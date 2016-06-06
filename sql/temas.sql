@@ -1,0 +1,3 @@
+INSERT INTO juego (tema, asignatura, ruta, nombre, autor, version, descripcion, publicado, id_admin, fecha_registro) values 
+('Mis cosas (relacionar imágenes/formas de objetos y sus nombres)',  1, '/home/rackso/juegos/esp', '2048', 'Open Source', '1.0', 'juego 2048!', 'true', 1, current_timestamp),
+('¿Más o menos? (diferenciar cantidades de cosas iguales, mayores o menores que otras)',  2, '/home/rackso/juegos/mat', '2048', 'Open Source', '1.0', 'juego 2048!', 'true', 1, current_timestamp);
