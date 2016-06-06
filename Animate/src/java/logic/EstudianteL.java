@@ -19,6 +19,7 @@ public class EstudianteL {
     private Transaction trans;
     private Cripta cripta;
     private List<Grado> lstGrados;
+    private List<Estudiante> lstEstudiantes;
 
     public FacesMessage registrar(Usuario u, Estudiante e, String confirmacion) {
         FacesMessage mensaje = null;
@@ -133,5 +134,41 @@ public class EstudianteL {
             return e;
         }
     }
+    
+    public List<Estudiante> listarEstudiantes() {
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Criteria cri = con.createCriteria(Estudiante.class);
+            lstEstudiantes = cri.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lstEstudiantes;
+    }
 
+    public FacesMessage eliminaEstudiante(Estudiante e) {
+        FacesMessage mensaje = null;
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Query q = con.createQuery("select u from Usuario u join "
+                    + "u.estudiantes e where e.idEstudiante = :id")
+                    .setInteger("id",e.getIdEstudiante());
+            Usuario u = (Usuario) q.uniqueResult();
+            trans = con.beginTransaction();
+            con.delete(u);
+            trans.commit();
+        } catch (Exception ex) {
+            trans.rollback();
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+                    "Error", "Error al eliminar estudiante");
+            ex.printStackTrace();
+        } finally {
+            con.close();
+            return mensaje;
+        }
+    }
 }

@@ -1,36 +1,37 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
+    <f:view locale="es_MX">
+        <h:head>
 
-    </h:head>
-    <h:body>
+        </h:head>
+        <h:body>
+            <center>
+                <h:form>
 
-        <h:form>
+                    <p:messages autoUpdate="true" showDetail="true" closable="true"/>
+                    <h:panelGrid columns = "2">
 
-            <p:messages autoUpdate="true" showDetail="true" closable="true"/>
-            <h:panelGrid columns = "2" styleClass="mi-panel-grid">
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="Iniciar Sesion" style="font-size: 24px;"/>
 
-                <p:outputLabel value=""/>
-                <p:outputLabel value="Iniciar Sesion" styleClass="titulo"/>
+                        <p:outputLabel for="usuario" value ="Usuario" />
+                        <p:inputText id="usuario" value="#{sesionC.usuario.username}" required="true" />
 
-                <p:outputLabel for="usuario" value ="Usuario" />
-                <p:inputText id="usuario" value="#{sesionC.usuario.username}" required="true" />
+                        <p:outputLabel for="contrasenia" value="Contraseña" />
+                        <p:password id="contrasenia" value="#{sesionC.usuario.password}" required="true" />
 
-                <p:outputLabel for="contrasenia" value="Contraseña" />
-                <p:password id="contrasenia" value="#{sesionC.usuario.password}" required="true" />
+                        <p:outputLabel value=""/>
+                        <p:commandButton value="Iniciar Sesion" action="#{sesionC.verificarDatosAdmin()}" />      
 
-                <p:outputLabel value=""/>
-                <p:commandButton value="Iniciar Sesion" action="#{sesionC.verificarDatosAdmin()}" />      
+                    </h:panelGrid>
 
-            </h:panelGrid>
-
-        </h:form>
-
-    </h:body>
+                </h:form>
+            </center>
+        </h:body>
+    </f:view>
 </html>

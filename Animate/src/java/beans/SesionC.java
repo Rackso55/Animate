@@ -48,7 +48,7 @@ public class SesionC implements Serializable {
                     resultado = "index?faces-redirect=true";
                     es = est;
                 } else {
-                    mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
+                    mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contraseña incorrectos", null);
                     FacesContext.getCurrentInstance().addMessage(null, mensaje);
                     resultado = "";
                 }
@@ -72,7 +72,7 @@ public class SesionC implements Serializable {
                 resultado = "InicioAdminIH?faces-redirect=true";
                 es = est;
             } else {
-                mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario o contraseña incorrectos", null);
+                mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contraseña incorrectos", null);
                 FacesContext.getCurrentInstance().addMessage(null, mensaje);
                 resultado = "";
             }

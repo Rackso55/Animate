@@ -15,13 +15,24 @@
 
         <h:body >
             <ui:insert name="top">
-                <f:facet name="last">
-                    <h:outputStylesheet name="css/pf-override.css" />
-                </f:facet>
+                <c:if test="#{sesionC.verificarTipo()}">
+
+                    <f:facet name="last">
+                        <h:outputStylesheet name="css/pf-override.css" />
+                    </f:facet>
+                    <h:form>
+                        <p:menubar>
+                            <p:menuitem value="Inicio" outcome="InicioAdminIH"/>
+                            <p:menuitem value="Subir Juego" outcome="SubirJuegoIH"/>
+                            <p:menuitem value="Administrar Estudiantes" outcome="AdministrarEstudiantesIH"/>
+                            <p:menuitem value="Cerrar Sesión" action="#{sesionC.cerrarSesion()}"/>
+                        </p:menubar>
+                    </h:form>
+                    <ui:insert name="content">
+
+                    </ui:insert> 
+                </c:if>
             </ui:insert>
-            <ui:insert name="content">
-                
-            </ui:insert> 
         </h:body>
     </f:view>
 </html>
