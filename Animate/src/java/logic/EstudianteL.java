@@ -3,6 +3,7 @@ package logic;
 import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import model.Asignatura;
 import model.Estudiante;
 import model.Grado;
 import model.Usuario;
@@ -20,6 +21,7 @@ public class EstudianteL {
     private Cripta cripta;
     private List<Grado> lstGrados;
     private List<Estudiante> lstEstudiantes;
+    private List<Asignatura> lstAsignaturas;
 
     public FacesMessage registrar(Usuario u, Estudiante e, String confirmacion) {
         FacesMessage mensaje = null;
@@ -92,6 +94,19 @@ public class EstudianteL {
             e.printStackTrace();
         }
         return lstGrados;
+    }
+    
+    public List<Asignatura> listarAsignaturas() {
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Criteria cri = con.createCriteria(Asignatura.class);
+            lstAsignaturas = cri.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lstAsignaturas;
     }
 
     /* Regresa al estudiante con el id dado */

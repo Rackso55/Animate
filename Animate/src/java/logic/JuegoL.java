@@ -4,22 +4,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import model.Administrador;
 import model.Asignatura;
 import model.Comentario;
 import model.Estudiante;
 import model.Juego;
+import model.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.Util;
 
 public class JuegoL {
-    
+
     private Session con;
     private Transaction trans;
     private List<Juego> juegos;
     private List<Comentario> comentarios;
-        
+
     public List<Juego> getJuegos(Asignatura a) {
         try {
             if (con == null || !con.isOpen()) {
@@ -31,17 +33,17 @@ public class JuegoL {
             juegos = q.list();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
+        }
         return juegos;
     }
-    
+
     public Asignatura getAsignatura(int id) {
         Asignatura a = null;
         try {
             if (con == null || !con.isOpen()) {
                 con = Util.getSessionFactory().openSession();
             }
-            a = (Asignatura)con.get(Asignatura.class, id);
+            a = (Asignatura) con.get(Asignatura.class, id);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -49,14 +51,14 @@ public class JuegoL {
             return a;
         }
     }
-    
+
     public Juego getJuego(int id) {
         Juego a = null;
         try {
             if (con == null || !con.isOpen()) {
                 con = Util.getSessionFactory().openSession();
             }
-            a = (Juego)con.get(Juego.class, id);
+            a = (Juego) con.get(Juego.class, id);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -64,12 +66,13 @@ public class JuegoL {
             return a;
         }
     }
-    
+
     public FacesMessage comentar(Comentario c) {
         FacesMessage mensaje = null;
         try {
-            if (con == null || !con.isOpen())
+            if (con == null || !con.isOpen()) {
                 con = Util.getSessionFactory().openSession();
+            }
             trans = con.beginTransaction();
             con.save(c);
             trans.commit();
@@ -81,9 +84,9 @@ public class JuegoL {
             con.close();
             return mensaje;
         }
-        
+
     }
-    
+
     public List<Comentario> getComentarios(Juego j) {
         try {
             if (con == null || !con.isOpen()) {
@@ -95,7 +98,33 @@ public class JuegoL {
             comentarios = q.list();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
+        }
         return comentarios;
     }
+
+    public FacesMessage registra(Juego juego, Usuario u) {
+        FacesMessage mensaje = null;
+        try {
+            if (con == null || !con.isOpen()) {
+                con = Util.getSessionFactory().openSession();
+            }
+            Query query = con.createQuery("select a from Usuario u join "
+                    + "u.administradors a where u.idUsuario = :id");
+            query.setParameter("id", u.getIdUsuario());
+            List<Administrador> l = query.list();
+            Administrador a = l.get(0);
+            juego.setAdministrador(a);
+            trans = con.beginTransaction();
+            con.save(juego);
+            trans.commit();
+        } catch (Exception ex) {
+            trans.rollback();
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al registrar juego", null);
+            ex.printStackTrace();
+        } finally {
+            con.close();
+            return mensaje;
+        }
+    }
+
 }

@@ -31,7 +31,7 @@
                             <p:outputLabel for="descripcion" value="Descripción:"/>
                             <p:outputLabel id="descripcion" value="#{juegoC.juego.descripcion}"/>
                         </h:panelGrid>
-                        <p:button value="Jugar" outcome="index" styleClass="decora_boton"/>
+                        <p:button value="Jugar" outcome="#{juegoC.juego.ruta}index.html" styleClass="decora_boton"/>
                         <p:separator/>
                         <h:form>
                             <h:panelGrid columns="3" styleClass="mi-panel-grid">
