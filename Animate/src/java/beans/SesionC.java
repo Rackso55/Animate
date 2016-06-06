@@ -60,29 +60,6 @@ public class SesionC implements Serializable {
         return resultado;
     }
 
-    public String verificarDatosAdmin() throws Exception {
-        SesionL sl = new SesionL();
-        String resultado = "";
-        Usuario est;
-        try {
-            est = sl.verificarDatosAdmin(es);
-            if (est != null) {
-                FacesContext.getCurrentInstance().getExternalContext()
-                        .getSessionMap().put("usuario", est);
-                resultado = "InicioAdminIH?faces-redirect=true";
-                es = est;
-            } else {
-                mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contraseña incorrectos", null);
-                FacesContext.getCurrentInstance().addMessage(null, mensaje);
-                resultado = "";
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resultado;
-    }
-
     public boolean verificarSesion() {
         boolean estado;
         if (FacesContext.getCurrentInstance().getExternalContext()

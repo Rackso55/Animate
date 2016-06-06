@@ -120,3 +120,15 @@
 .ui-datalist-data {
     margin-bottom: 0;
 }
+
+#principal-cuerpo-admin {
+    overflow:auto;
+}
+
+#contenedor_info_juego {
+    overflow: auto;
+}
+
+#catalogo-usuario {
+    overflow: auto;
+}

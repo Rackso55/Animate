@@ -9,32 +9,42 @@
 
     </h:head>
     <h:body>
-        <ui:composition template="plantillas/VistaAdministrador.xhtml">
+        <ui:composition template="plantillas/hola.xhtml">
             <ui:define name="content">
-                <h:form>
-                    <p:growl id="growl" showDetail="true" sticky="false" life="3000" />
-                    <p:dataTable value="#{administrarEstudiantesC.estudiantes}" var="estudiante">
-                        <p:column headerText="Nombre de usuario">
-                            <p:outputLabel value="#{estudiante.usuario.username}"/>
-                        </p:column>
-                        <p:column headerText="Nombre">
-                            <p:outputLabel value="#{estudiante.nombre} #{estudiante.apellidoPat} #{estudiante.apellidoMat}"/>
-                        </p:column>
-                        <p:column headerText="Correo">
-                            <p:outputLabel value="#{estudiante.usuario.correo}"/>
-                        </p:column>
-                        <p:column headerText="Edad">
-                            <p:outputLabel value="#{estudiante.edad}"/>
-                        </p:column>
-                        <p:column headerText="Grado">
-                            <p:outputLabel value="#{estudiante.grado}"/>
-                        </p:column>
-                        <p:column>
-                            <p:commandButton icon="fa fa-fw fa-remove" actionListener="#{administrarEstudiantesC.eliminaEstudiante(estudiante)}" 
-                                             update="@form"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:form>
+                <f:facet name="last">
+                    <h:outputStylesheet name="css/pf-override.css" />
+                </f:facet>
+                <div id="catalogo-usuario" class="col-md-offset-1 col-md-10">
+                    <h:form>
+                        <p:growl id="growl" showDetail="true" sticky="false" life="3000" />
+                        <br></br>
+                        <table class='table table-striped table-bordered' >
+                            <thead>
+                                <tr class="info">
+                                    <th>Nombre de usuario</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Correo</th>
+                                    <th>Edad</th> 
+                                    <th>Grado</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <p:dataList value="#{administrarEstudiantesC.estudiantes}" var="estudiante" type="definition">
+                                    <tr>
+                                        <th><p:outputLabel value="#{estudiante.usuario.username}"/></th>
+                                        <th><p:outputLabel value="#{estudiante.nombre} #{estudiante.apellidoPat} #{estudiante.apellidoMat}"/></th>
+                                        <th><p:outputLabel value="#{estudiante.usuario.correo}"/></th>
+                                        <th><p:outputLabel value="#{estudiante.edad}"/></th>
+                                        <th><p:outputLabel value="#{estudiante.grado}"/></th>
+                                        <th><p:commandButton icon="fa fa-fw fa-remove" actionListener="#{administrarEstudiantesC.eliminaEstudiante(estudiante)}" 
+                                                             update="@form" styleClass="btn btn-info"/></th>
+                                    </tr>
+                                </p:dataList>
+                            </tbody>
+                        </table>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
 

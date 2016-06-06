@@ -95,6 +95,48 @@
 
                 </ui:insert>
             </c:if>
+            
+            <c:if test="#{sesionC.verificarTipo()}">
+                <ui:insert name="top">
+                    <!--                    <f:facet name="last">
+                                            <h:outputStylesheet name="css/pf-override.css" />
+                                        </f:facet>-->
+
+                    <div id="principal" class="container">
+                        <div id="principal-header" class="col-md-offset-1 col-md-10">
+                            <img id="logo" src="resources/images/banner.png" alt=""/>                
+                        </div>
+
+                        <div id="barra-menu" class="col-md-12">
+                            <ul>
+                                <li><a onclick="window.open('/Animate/faces/index.xhtml', '_self')">INICIO</a></li>                  
+                                <li><a onclick="window.open('/Animate/faces/AdministrarEstudiantesIH.xhtml', '_self')">USUARIOS</a></li>
+                                <li><a onclick="window.open('/Animate/faces/SubirJuegoIH.xhtml', '_self')">SUBIR JUEGO</a></li>
+                                <li><a onclick="PF('dlg').show()">CERRAR SESION</a></li>
+                            </ul>
+                        </div>
+                        <div id="barra-menu-negra" class="col-md-12"></div>
+
+                        <ui:insert name="content">
+
+                        </ui:insert> 
+
+                        <ui:insert name="bottom">
+                        </ui:insert>
+
+                    </div>
+                    <h:form>
+                        <p:dialog header="Cerrar sesion" widgetVar="dlg" modal="true" height="100" width="200" resizable="false">
+                            <center>
+                                <p:outputLabel value="Estas seguro de querer cerrar tu sesion?"/>
+                                <br></br>
+                                <p:commandButton value="Si" action="#{sesionC.cerrarSesion()}" ajax="false"/>
+                            </center>
+                        </p:dialog> 
+                    </h:form>
+
+                </ui:insert>
+            </c:if>
         </h:body>
     </f:view>
 </html>

@@ -35,28 +35,6 @@ public class SesionL {
             return pa;
         }
     }
-
-    public Usuario verificarDatosAdmin(Usuario u) throws Exception {
-        encripta = new Cripta();
-        Usuario adm = null;
-        try {
-            if (sesion == null || !sesion.isOpen()) {
-                sesion = Util.getSessionFactory().openSession();
-            }
-            String hql = "FROM Usuario WHERE username = '" + u.getUsername()
-                    + "' and password = '" + encripta.encripta(u.getPassword()) + "'";
-            Query query = sesion.createQuery(hql);
-            List<Usuario> l = query.list();
-            if (!l.isEmpty()) {
-                adm = l.get(0);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            sesion.close();
-            return adm;
-        }
-    }
     
     public boolean verificarTipo(Usuario u){
         boolean b = false;
