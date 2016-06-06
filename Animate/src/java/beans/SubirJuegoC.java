@@ -92,7 +92,7 @@ public class SubirJuegoC implements Serializable {
             } catch (IOException e) {
                 System.out.println("EROR");
             }
-            String destPath = "/home/chepe/juegos";
+            String destPath = "/home/rackso/juegos";
             System.out.println(destPath);
             File directorio = new File(destPath);
             directorio.mkdir();
